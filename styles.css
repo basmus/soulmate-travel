@@ -39,7 +39,7 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("images/hero-tbilisi.jpg") 75% center/cover no-repeat;
+  background: url("images/hero-tbilisi.jpg") 75% 45%/cover no-repeat;
   opacity: 0.75;
 }
 
