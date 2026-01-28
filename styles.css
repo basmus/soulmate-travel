@@ -337,6 +337,33 @@ h4 {
   transform: scale(1.02);
 }
 
+.reviews-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.review-card {
+  margin: 0;
+  padding: 20px;
+  background: #fffaf3;
+  border-radius: 12px;
+  border-left: 4px solid #8f4a24;
+  box-shadow: 0 4px 16px rgba(148, 90, 40, 0.08);
+}
+
+.review-text {
+  margin: 0 0 12px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.review-author {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #9a6b4a;
+}
+
 .footer {
   background: #8f4a24;
   color: #fff;
