@@ -39,15 +39,15 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("images/hero-tbilisi.jpg") center/cover no-repeat;
-  opacity: 0.5;
+  background: url("images/hero-tbilisi.jpg") 75% center/cover no-repeat;
+  opacity: 0.75;
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, rgba(182, 92, 42, 0.85), rgba(226, 138, 74, 0.65));
+  background: linear-gradient(120deg, rgba(182, 92, 42, 0.3), rgba(226, 138, 74, 0.25));
 }
 
 .hero .container {
@@ -104,6 +104,10 @@ img {
   font-size: 1.1rem;
   max-width: 680px;
   margin: 0 0 24px;
+}
+
+.lead + .lead {
+  margin-top: -20px;
 }
 
 .hero-nav {
@@ -213,6 +217,28 @@ h4 {
   margin-bottom: 0;
 }
 
+.tour-booking {
+  margin-top: 20px;
+  margin-bottom: 18px;
+}
+
+.booking-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #8f4a24;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.2s ease, transform 0.1s ease;
+  text-decoration: none;
+}
+
+.booking-button:hover {
+  background: #a34d24;
+  transform: translateY(-1px);
+}
+
 .tour-details {
   margin-top: 18px;
   border-radius: 12px;
@@ -270,19 +296,41 @@ h4 {
 
 .photo-grid {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   margin-top: 18px;
   overflow-x: auto;
-  padding-bottom: 6px;
+  padding-bottom: 12px;
   scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #8f4a24 #fffaf3;
+}
+
+.photo-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.photo-grid::-webkit-scrollbar-track {
+  background: #fffaf3;
+  border-radius: 4px;
+}
+
+.photo-grid::-webkit-scrollbar-thumb {
+  background: #8f4a24;
+  border-radius: 4px;
 }
 
 .photo-grid img {
-  flex: 0 0 180px;
-  height: 140px;
+  flex: 0 0 280px;
+  height: 200px;
   object-fit: cover;
   border-radius: 12px;
   scroll-snap-align: start;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.02);
 }
 
 .footer {
