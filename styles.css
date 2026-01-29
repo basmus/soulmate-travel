@@ -284,6 +284,11 @@ h4 {
   margin-top: 16px;
 }
 
+.tour-details-intro {
+  margin-bottom: 4px;
+  line-height: 1.55;
+}
+
 .card-columns {
   display: grid;
   gap: 18px;
