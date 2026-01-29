@@ -213,8 +213,15 @@ h4 {
   border-radius: 14px;
 }
 
+.tour-cover-mtskheta {
+  object-position: 50% 30%;
+  max-width: 280px;
+}
+
 .tour-cover-small {
   height: 120px;
+  max-width: 189px;
+  object-position: 50% 10%;
 }
 
 .tour-main-text .card-lead {
