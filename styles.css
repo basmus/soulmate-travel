@@ -208,21 +208,11 @@ h4 {
 
 .tour-main img {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
+  height: auto;
+  display: block;
   border-radius: 14px;
 }
 
-.tour-cover-mtskheta {
-  object-position: 50% 30%;
-  max-width: 280px;
-}
-
-.tour-cover-small {
-  height: 120px;
-  max-width: 189px;
-  object-position: 50% 10%;
-}
 
 .tour-main-text .card-lead {
   margin-bottom: 0;
@@ -414,9 +404,6 @@ h4 {
     grid-template-columns: 1fr;
   }
 
-  .tour-main img {
-    height: 200px;
-  }
 
   .card {
     padding: 22px;
