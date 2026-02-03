@@ -185,6 +185,14 @@ h4 {
   margin-bottom: 0;
 }
 
+.card-custom-route {
+  text-align: center;
+}
+
+.card-custom-route .card-lead {
+  margin-bottom: 16px;
+}
+
 .card-header {
   margin-bottom: 16px;
 }
