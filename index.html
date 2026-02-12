@@ -573,7 +573,7 @@
                 <div>
                   <h4>Стоимость</h4>
                   <p>
-                    140 лари/чел<br>
+                    160 лари/чел<br>
                     Минимум 3 человека.<br>
                     Группам от 5 человек — скидка 10%
                   </p>
@@ -618,32 +618,39 @@
       <section id="reviews" class="section section-alt">
         <div class="container">
           <h2>Отзывы</h2>
-          <div class="reviews-carousel tour-cover-carousel carousel-3-4">
-            <button type="button" class="carousel-prev" aria-label="Предыдущий отзыв">‹</button>
-            <div class="carousel-track">
-              <figure class="carousel-slide">
-                <img src="images/reviews/review-1.png" alt="Отзыв Марины, 26 августа 2025" />
-              </figure>
-              <figure class="carousel-slide">
-                <img src="images/reviews/review-2.png" alt="Отзыв Евы, 23 апреля 2025" />
-              </figure>
-              <figure class="carousel-slide">
-                <img src="images/reviews/review-3.png" alt="Отзыв Сергея С." />
-              </figure>
-              <figure class="carousel-slide">
-                <img src="images/reviews/review-4.png" alt="Отзыв Татьяны, 20 сентября 2025" />
-              </figure>
-              <figure class="carousel-slide">
-                <img src="images/reviews/review-5.png" alt="Отзыв гостя об экскурсии" />
-              </figure>
-              <figure class="carousel-slide">
-                <img src="images/reviews/review-6.png" alt="Отзыв гостя об интерактивности" />
-              </figure>
-              <figure class="carousel-slide">
-                <img src="images/reviews/review-7.png" alt="Отзыв Анастасии, 7 августа 2025" />
-              </figure>
-            </div>
-            <button type="button" class="carousel-next" aria-label="Следующий отзыв">›</button>
+          <div class="reviews-carousel">
+          <button type="button" class="reviews-carousel-prev" aria-label="Предыдущие отзывы">‹</button>
+          <div class="reviews-carousel-track">
+            <blockquote class="review-card">
+              <p class="review-text">Очень душевная прогулка по Тбилиси. Любовь показала город с такой любовью и знанием деталей, что захотелось вернуться ещё.</p>
+              <footer class="review-author">— Гость из Москвы</footer>
+            </blockquote>
+            <blockquote class="review-card">
+              <p class="review-text">Поездка в Мцхету превзошла ожидания. Интересные истории, красивые виды и тёплое отношение. Рекомендую!</p>
+              <footer class="review-author">— Гость из Санкт-Петербурга</footer>
+            </blockquote>
+            <blockquote class="review-card">
+              <p class="review-text">Спасибо за экскурсию на пивоварню — неожиданно и очень познавательно. И пиво отличное!</p>
+              <footer class="review-author">— Гость</footer>
+            </blockquote>
+            <blockquote class="review-card">
+              <p class="review-text">Давид Гареджи — потрясающее место. Любовь знает каждую тропинку и каждую историю. Пикник с видом на цветные холмы — незабываемо!</p>
+              <footer class="review-author">— Анна и Михаил</footer>
+            </blockquote>
+            <blockquote class="review-card">
+              <p class="review-text">Профессиональный подход, внимательность к деталям и тёплая атмосфера. Экскурсия по Тбилиси получилась именно такой, какой мы и мечтали.</p>
+              <footer class="review-author">— Гость из Казани</footer>
+            </blockquote>
+            <blockquote class="review-card">
+              <p class="review-text">Второй раз в Тбилиси — и снова обратились к Любови. На этот раз Мцхета и монастыри. Ни капли не пожалели — это было лучшее решение!</p>
+              <footer class="review-author">— Семья из Новосибирска</footer>
+            </blockquote>
+            <blockquote class="review-card">
+              <p class="review-text">Редко встречаются гиды, которые так искренне любят свой город. Спасибо за открытый Тбилиси — не парадный, а настоящий, с душой.</p>
+              <footer class="review-author">— Гость из Минска</footer>
+            </blockquote>
+          </div>
+          <button type="button" class="reviews-carousel-next" aria-label="Следующие отзывы">›</button>
           </div>
         </div>
       </section>
@@ -665,7 +672,7 @@
       </div>
     </footer>
     <script>
-      document.querySelectorAll('.tour-cover-carousel, .reviews-carousel').forEach(function (carousel) {
+      document.querySelectorAll('.tour-cover-carousel').forEach(function (carousel) {
         var track = carousel.querySelector('.carousel-track');
         var prev = carousel.querySelector('.carousel-prev');
         var next = carousel.querySelector('.carousel-next');
@@ -677,6 +684,22 @@
           track.scrollBy({ left: track.offsetWidth, behavior: 'smooth' });
         });
       });
+
+      (function () {
+        var reviewsTrack = document.querySelector('.reviews-carousel-track');
+        var reviewsPrev = document.querySelector('.reviews-carousel-prev');
+        var reviewsNext = document.querySelector('.reviews-carousel-next');
+        if (!reviewsTrack || !reviewsPrev || !reviewsNext) return;
+        var card = reviewsTrack.querySelector('.review-card');
+        if (!card) return;
+        var scrollAmount = card.offsetWidth + 20;
+        reviewsPrev.addEventListener('click', function () {
+          reviewsTrack.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+        reviewsNext.addEventListener('click', function () {
+          reviewsTrack.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+      })();
     </script>
   </body>
 </html>
