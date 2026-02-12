@@ -105,14 +105,6 @@
                     <figcaption>Мост Мира и панорама города</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/tbilisi/tour-tbilisi-gallery-arches.png" alt="Историческая арочная галерея Тбилиси" />
-                    <figcaption>Историческая арочная галерея Тбилиси</figcaption>
-                  </figure>
-                  <figure class="carousel-slide">
-                    <img src="images/tbilisi/tour-tbilisi-palace-interior.png" alt="Роскошный интерьер — своды и мраморная лестница в Тбилиси" />
-                    <figcaption>Роскошный интерьер — своды и мраморная лестница в Тбилиси</figcaption>
-                  </figure>
-                  <figure class="carousel-slide">
                     <img src="images/tbilisi/tour-tbilisi-07.jpg" alt="Здание с классическим наследием — арки, фрески, памятник" />
                     <figcaption>Здание с классическим наследием — арки, фрески, памятник</figcaption>
                   </figure>
@@ -123,6 +115,10 @@
                   <figure class="carousel-slide">
                     <img src="images/tbilisi/tour-tbilisi-11.jpg" alt="Грузинский храм с куполом под голубым небом" />
                     <figcaption>Грузинский храм с куполом под голубым небом</figcaption>
+                  </figure>
+                  <figure class="carousel-slide">
+                    <img src="images/tbilisi/tour-tbilisi-03.jpg" alt="Роскошные люстры и лестница в старинном здании" />
+                    <figcaption>Роскошные люстры и лестница в старинном здании</figcaption>
                   </figure>
                   <figure class="carousel-slide">
                     <img src="images/tbilisi/tour-tbilisi-15.jpg" alt="Улица с деревянными балконами в Старом городе" />
@@ -577,7 +573,7 @@
                 <div>
                   <h4>Стоимость</h4>
                   <p>
-                    160 лари/чел<br>
+                    140 лари/чел<br>
                     Минимум 3 человека.<br>
                     Группам от 5 человек — скидка 10%
                   </p>
@@ -622,19 +618,32 @@
       <section id="reviews" class="section section-alt">
         <div class="container">
           <h2>Отзывы</h2>
-          <div class="reviews-grid">
-            <blockquote class="review-card">
-              <p class="review-text">Очень душевная прогулка по Тбилиси. Любовь показала город с такой любовью и знанием деталей, что захотелось вернуться ещё.</p>
-              <footer class="review-author">— Гость из Москвы</footer>
-            </blockquote>
-            <blockquote class="review-card">
-              <p class="review-text">Поездка в Мцхету превзошла ожидания. Интересные истории, красивые виды и тёплое отношение. Рекомендую!</p>
-              <footer class="review-author">— Гость из Санкт-Петербурга</footer>
-            </blockquote>
-            <blockquote class="review-card">
-              <p class="review-text">Спасибо за экскурсию на пивоварню — неожиданно и очень познавательно. И пиво отличное!</p>
-              <footer class="review-author">— Гость</footer>
-            </blockquote>
+          <div class="reviews-carousel tour-cover-carousel carousel-3-4">
+            <button type="button" class="carousel-prev" aria-label="Предыдущий отзыв">‹</button>
+            <div class="carousel-track">
+              <figure class="carousel-slide">
+                <img src="images/reviews/review-1.png" alt="Отзыв Марины, 26 августа 2025" />
+              </figure>
+              <figure class="carousel-slide">
+                <img src="images/reviews/review-2.png" alt="Отзыв Евы, 23 апреля 2025" />
+              </figure>
+              <figure class="carousel-slide">
+                <img src="images/reviews/review-3.png" alt="Отзыв Сергея С." />
+              </figure>
+              <figure class="carousel-slide">
+                <img src="images/reviews/review-4.png" alt="Отзыв Татьяны, 20 сентября 2025" />
+              </figure>
+              <figure class="carousel-slide">
+                <img src="images/reviews/review-5.png" alt="Отзыв гостя об экскурсии" />
+              </figure>
+              <figure class="carousel-slide">
+                <img src="images/reviews/review-6.png" alt="Отзыв гостя об интерактивности" />
+              </figure>
+              <figure class="carousel-slide">
+                <img src="images/reviews/review-7.png" alt="Отзыв Анастасии, 7 августа 2025" />
+              </figure>
+            </div>
+            <button type="button" class="carousel-next" aria-label="Следующий отзыв">›</button>
           </div>
         </div>
       </section>
@@ -656,7 +665,7 @@
       </div>
     </footer>
     <script>
-      document.querySelectorAll('.tour-cover-carousel').forEach(function (carousel) {
+      document.querySelectorAll('.tour-cover-carousel, .reviews-carousel').forEach(function (carousel) {
         var track = carousel.querySelector('.carousel-track');
         var prev = carousel.querySelector('.carousel-prev');
         var next = carousel.querySelector('.carousel-next');
