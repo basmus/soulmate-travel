@@ -517,6 +517,16 @@ h4 {
   color: #9a6b4a;
 }
 
+.review-author a {
+  color: #8f4a24;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.review-author a:hover {
+  color: #a34d24;
+}
+
 .footer {
   background: #8f4a24;
   color: #fff;
