@@ -189,8 +189,15 @@ h4 {
   text-align: center;
 }
 
-.card-custom-route .card-lead {
-  margin-bottom: 16px;
+.card-custom-route .card-header {
+  margin-bottom: 12px;
+}
+
+.card-custom-route-text {
+  margin: 0 auto 20px;
+  max-width: 640px;
+  line-height: 1.55;
+  text-align: center;
 }
 
 .card-header {
