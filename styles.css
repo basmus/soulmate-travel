@@ -239,6 +239,85 @@ h4 {
   padding-top: 16px;
 }
 
+.route-main {
+  display: grid;
+  gap: 20px;
+  align-items: start;
+  grid-template-columns: minmax(260px, 400px) 1fr;
+}
+
+.route-cover {
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.route-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.route-main-text .card-lead {
+  margin-bottom: 0;
+}
+
+.routes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card-route {
+  padding: 16px 18px;
+  margin-bottom: 0;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(148, 90, 40, 0.08);
+}
+
+.card-route .route-main {
+  gap: 14px;
+  grid-template-columns: minmax(120px, 160px) 1fr;
+  align-items: start;
+}
+
+.card-route .route-cover {
+  border-radius: 10px;
+  aspect-ratio: 4 / 3;
+}
+
+.card-route .card-header {
+  margin-bottom: 6px;
+}
+
+.card-route h3 {
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.card-route .card-subtitle {
+  font-size: 0.82rem;
+}
+
+.card-route .card-lead {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+
+.card-route .route-main-text .card-lead {
+  margin-bottom: 10px;
+}
+
+.booking-button--compact {
+  padding: 7px 14px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  align-self: flex-start;
+}
+
 .tour-main img {
   width: 100%;
   height: auto;
@@ -591,6 +670,15 @@ h4 {
 
   .tour-main {
     grid-template-columns: 1fr;
+  }
+
+  .route-main {
+    grid-template-columns: 1fr;
+  }
+
+  .card-route .route-main {
+    grid-template-columns: minmax(100px, 140px) 1fr;
+    gap: 12px;
   }
 
   .tour-main--portrait .tour-main-text {
