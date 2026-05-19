@@ -218,7 +218,25 @@ h4 {
   display: grid;
   gap: 20px;
   align-items: start;
-  grid-template-columns: minmax(240px, 360px) 1fr;
+  grid-template-columns: minmax(260px, 400px) 1fr;
+}
+
+.tour-main--portrait {
+  align-items: stretch;
+  grid-template-columns: minmax(240px, 340px) 1fr;
+}
+
+.tour-main--portrait .tour-main-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.tour-main--portrait .tour-booking {
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-top: 16px;
 }
 
 .tour-main img {
@@ -573,6 +591,14 @@ h4 {
 
   .tour-main {
     grid-template-columns: 1fr;
+  }
+
+  .tour-main--portrait .tour-main-text {
+    min-height: auto;
+  }
+
+  .tour-main--portrait .tour-booking {
+    margin-top: 20px;
   }
 
 
