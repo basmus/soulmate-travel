@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: rental
+      POSTGRES_PASSWORD: rental
+      POSTGRES_DB: rental
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://rental:rental@postgres:5432/rental
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    volumes:
+      - ./api:/app
+
+  bot:
+    build:
+      context: ./bot
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      API_URL: http://api:8000
+    depends_on:
+      - api
+    volumes:
+      - ./bot:/app
+
+volumes:
+  pgdata:

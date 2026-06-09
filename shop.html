@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Прокат оборудования — Soulmate Travel</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero hero--compact">
+      <div class="container">
+        <div class="hero-top">
+          <p class="eyebrow">Soulmate Travel</p>
+          <div class="hero-contacts">
+            <a href="index.html">← Экскурсии</a>
+            <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer">Telegram</a>
+          </div>
+        </div>
+        <h1>Прокат туристического оборудования</h1>
+        <p class="lead">Выберите снаряжение, даты аренды и оформите заказ на сайте — или забронируйте через Telegram-бот.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <p id="shop-status" class="shop-status">Загрузка…</p>
+
+          <div class="shop-layout">
+            <div class="shop-main">
+              <h2>Оборудование</h2>
+              <div id="shop-grid" class="shop-grid"></div>
+
+              <p class="shop-bot-note">
+                Удобнее в Telegram?
+                <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer">Забронировать в боте</a>
+              </p>
+            </div>
+
+            <aside class="shop-sidebar card">
+              <h2>Корзина</h2>
+              <p id="cart-empty">Корзина пуста</p>
+              <ul id="cart-items" class="cart-items"></ul>
+              <p class="cart-dates-label">Период аренды:</p>
+              <p id="cart-dates" class="cart-dates">Выберите даты в календаре</p>
+
+              <div id="shop-calendar" class="shop-calendar"></div>
+
+              <p class="cart-total-label">Итого:</p>
+              <p id="cart-total" class="cart-total">—</p>
+              <p id="cart-error" class="shop-error"></p>
+
+              <form id="checkout-form" class="checkout-form">
+                <h3>Оформление заказа</h3>
+                <label>
+                  Имя
+                  <input type="text" id="contact-name" required autocomplete="name" />
+                </label>
+                <label>
+                  Телефон
+                  <input type="tel" id="contact-phone" required autocomplete="tel" />
+                </label>
+                <label>
+                  Email (необязательно)
+                  <input type="email" id="contact-email" autocomplete="email" />
+                </label>
+                <label>
+                  Комментарий
+                  <textarea id="contact-comment" rows="2"></textarea>
+                </label>
+                <p id="checkout-error" class="shop-error"></p>
+                <button type="submit" id="checkout-submit" class="booking-button">Оформить заказ</button>
+              </form>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>Тбилиси • Прокат и экскурсии</p>
+          <div class="footer-contacts">
+            <a href="index.html">Экскурсии</a>
+            <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer">Telegram</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/shop.js"></script>
+  </body>
+</html>

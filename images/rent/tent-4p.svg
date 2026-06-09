@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#fff3e2"/>
+  <path d="M60 210 L200 60 L340 210 Z" stroke="#8f4a24" stroke-width="4" fill="#e28a4a" opacity="0.4"/>
+  <rect x="100" y="150" width="200" height="90" rx="4" fill="#8f4a24" opacity="0.3"/>
+  <text x="200" y="260" text-anchor="middle" fill="#8f4a24" font-family="Segoe UI,sans-serif" font-size="18">0;0B:0 4-<5AB</text>
+</svg>

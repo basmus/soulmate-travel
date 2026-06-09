@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Заказ — Soulmate Travel</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero hero--compact">
+      <div class="container">
+        <div class="hero-top">
+          <p class="eyebrow">Soulmate Travel</p>
+          <div class="hero-contacts">
+            <a href="shop.html">← Магазин</a>
+            <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer">Telegram</a>
+          </div>
+        </div>
+        <h1>Ваш заказ</h1>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <p id="order-error" class="shop-error"></p>
+
+          <div id="order-content" class="order-content card" hidden>
+            <p>Заказ <strong>#<span id="order-id"></span></strong></p>
+            <p>Статус: <strong id="order-status"></strong></p>
+            <p>Период: <span id="order-dates"></span></p>
+            <p>Контакт: <span id="order-contact"></span></p>
+
+            <h3>Позиции</h3>
+            <ul id="order-items" class="order-items"></ul>
+
+            <p class="order-total">Итого: <strong id="order-total"></strong></p>
+
+            <div class="order-payment">
+              <h3>Оплата</h3>
+              <p id="payment-instructions"></p>
+              <a id="payment-telegram" href="#" target="_blank" rel="noreferrer" class="booking-button">Написать в Telegram</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>Тбилиси • Прокат и экскурсии</p>
+          <div class="footer-contacts">
+            <a href="shop.html">Магазин</a>
+            <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer">Telegram</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/shop-order.js"></script>
+  </body>
+</html>
