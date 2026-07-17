@@ -6,12 +6,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from config import settings
 from database import Base, engine, get_db
 from routers import equipment, orders
-from seed import seed_equipment
+from seed import migrate_equipment_columns, seed_equipment
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     Base.metadata.create_all(bind=engine)
+    migrate_equipment_columns(engine)
     db = next(get_db())
     try:
         seed_equipment(db)

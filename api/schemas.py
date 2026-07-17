@@ -3,6 +3,8 @@ from typing import Literal
 
 from pydantic import BaseModel, Field, field_validator
 
+from config import settings
+
 
 class EquipmentOut(BaseModel):
     id: int
@@ -11,6 +13,9 @@ class EquipmentOut(BaseModel):
     description: str
     photo_url: str
     price_per_day: float
+    price_1_day: float
+    price_2_4_days: float
+    price_5_plus_days: float
     quantity: int
     is_active: bool
 
@@ -72,14 +77,14 @@ class OrderOut(BaseModel):
     status: str
     created_at: datetime
     items: list[OrderItemOut]
-    currency: str = "EUR"
+    currency: str = Field(default_factory=lambda: settings.default_currency)
 
 
 class OrderPreviewOut(BaseModel):
     days: int
     total_price: float
     items: list[OrderItemOut]
-    currency: str = "EUR"
+    currency: str = Field(default_factory=lambda: settings.default_currency)
 
 
 class AvailabilityDay(BaseModel):
@@ -105,6 +110,9 @@ class OrderStatusUpdateIn(BaseModel):
 
 class EquipmentUpdateIn(BaseModel):
     price_per_day: float | None = None
+    price_1_day: float | None = None
+    price_2_4_days: float | None = None
+    price_5_plus_days: float | None = None
     quantity: int | None = None
     description: str | None = None
     is_active: bool | None = None

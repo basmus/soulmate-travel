@@ -29,6 +29,9 @@ class Equipment(Base):
     description: Mapped[str] = mapped_column(Text, default="")
     photo_url: Mapped[str] = mapped_column(String(500), default="")
     price_per_day: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
+    price_1_day: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False, default=0)
+    price_2_4_days: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False, default=0)
+    price_5_plus_days: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False, default=0)
     quantity: Mapped[int] = mapped_column(Integer, default=1)
     is_active: Mapped[bool] = mapped_column(default=True)
 

@@ -54,7 +54,7 @@ async def admin_orders(callback: CallbackQuery):
         lines.append(
             f"#{o['id']} [{o['source']}] {o['status']}\n"
             f"{items}\n"
-            f"{o['start_date']} — {o['end_date']} | {o['total_price']} EUR\n"
+            f"{o['start_date']} — {o['end_date']} | {o['total_price']} ₾\n"
             f"{contact}, {phone}\n"
             f"/confirm_{o['id']}  /cancel_{o['id']}"
         )
@@ -77,7 +77,7 @@ async def cmd_orders(message: Message):
     lines = []
     for o in orders[:15]:
         items = ", ".join(i["equipment_name"] for i in o["items"])
-        lines.append(f"#{o['id']} — {items} | {o['total_price']} EUR | /confirm_{o['id']}")
+        lines.append(f"#{o['id']} — {items} | {o['total_price']} ₾ | /confirm_{o['id']}")
     await message.answer("Pending заказы:\n\n" + "\n".join(lines))
 
 
@@ -137,7 +137,7 @@ async def admin_items(callback: CallbackQuery):
     for e in items:
         lines.append(
             f"#{e['id']} {e['name']}\n"
-            f"  {e['price_per_day']} EUR/д, qty={e['quantity']}, active={e['is_active']}\n"
+            f"  {e['price_per_day']} ₾/д, qty={e['quantity']}, active={e['is_active']}\n"
             f"  /edit_{e['id']}_price  /edit_{e['id']}_qty"
         )
     await callback.message.edit_text("📦 Ассортимент:\n\n" + "\n\n".join(lines))
@@ -149,7 +149,7 @@ async def cmd_list_items(message: Message):
     if not is_admin(message.from_user.id):
         return
     items = await api.admin_list_equipment()
-    lines = [f"#{e['id']} {e['name']} — {e['price_per_day']} EUR, qty={e['quantity']}" for e in items]
+    lines = [f"#{e['id']} {e['name']} — {e['price_per_day']} ₾, qty={e['quantity']}" for e in items]
     await message.answer("Ассортимент:\n" + "\n".join(lines))
 
 
@@ -162,7 +162,7 @@ async def edit_item_start(message: Message, state: FSMContext):
     field = parts[2]
     await state.update_data(edit_id=eq_id, edit_field=field)
     await state.set_state(AdminEditStates.waiting_value)
-    prompt = "Новая цена (EUR/день):" if field == "price" else "Новое количество на складе:"
+    prompt = "Новая цена «от» (₾/день, 5+ суток):" if field == "price" else "Новое количество на складе:"
     await message.answer(prompt)
 
 
@@ -187,4 +187,4 @@ async def edit_item_value(message: Message, state: FSMContext):
         return
 
     await state.clear()
-    await message.answer(f"✅ Обновлено: {item['name']} — {item['price_per_day']} EUR, qty={item['quantity']}")
+    await message.answer(f"✅ Обновлено: {item['name']} — {item['price_per_day']} ₾, qty={item['quantity']}")

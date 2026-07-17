@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Прокат оборудования — Soulmate Travel</title>
+    <title>Аренда палаток в Тбилиси — Soulmate Travel</title>
+    <meta
+      name="description"
+      content="Аренда палаток и снаряжения в Тбилиси — для Казбеги, Сванетии и поездок по Грузии. Комплекты или сборка по отдельности."
+    />
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -18,62 +22,348 @@
           </div>
         </div>
         <h1>Прокат туристического оборудования</h1>
-        <p class="lead">Выберите снаряжение, даты аренды и оформите заказ на сайте — или забронируйте через Telegram-бот.</p>
+        <p class="lead">
+          <span class="rental-lead-first">Аренда палаток и снаряжения в Тбилиси — для Казбеги, Сванетии и поездок по Грузии.</span><br />
+          Готовый комплект или сборка по отдельности.
+        </p>
+        <nav class="hero-nav">
+          <a href="#kits">Комплекты</a>
+          <a href="#items">По отдельности</a>
+          <a href="#book">Забронировать</a>
+        </nav>
       </div>
     </header>
 
     <main>
-      <section class="section">
+      <section id="kits" class="section">
         <div class="container">
-          <p id="shop-status" class="shop-status">Загрузка…</p>
+          <h2>Готовые комплекты</h2>
+          <p class="lead">Их берут чаще всего — всё нужное уже собрано.</p>
 
-          <div class="shop-layout">
-            <div class="shop-main">
-              <h2>Оборудование</h2>
-              <div id="shop-grid" class="shop-grid"></div>
-
-              <p class="shop-bot-note">
-                Удобнее в Telegram?
-                <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer">Забронировать в боте</a>
+          <div class="rental-kits-grid">
+            <article class="rental-kit-card">
+              <img src="images/rent/kit-2.png" alt="Комплект для 2 человек в горах" width="320" height="240" />
+              <h3>Комплект для 2 человек</h3>
+              <p class="rental-kit-compose">Палатка, 2 спальника, 2 коврика</p>
+              <p class="rental-desc">
+                Готовый набор для пары или двоих друзей: всё для ночёвки в горах или у моря.
+                Берите, если не хотите собирать снаряжение по пунктам.
               </p>
+              <ul class="rental-price-list">
+                <li>1 день — 75&nbsp;₾</li>
+                <li>2–4 дня — 65&nbsp;₾/сутки</li>
+                <li>5+ дней — 55&nbsp;₾/сутки</li>
+              </ul>
+              <button type="button" class="booking-button booking-button--compact" data-book="kit-2">
+                Забронировать
+              </button>
+            </article>
+
+            <article class="rental-kit-card">
+              <img src="images/rent/kit-4.png" alt="Семейный кемпинг-комплект у реки" width="320" height="240" />
+              <h3>Семейный комплект (4 человека)</h3>
+              <p class="rental-kit-compose">Палатка, 4 спальника, 4 коврика</p>
+              <p class="rental-desc">
+                Для семьи или небольшой компании. В комплекте просторная палатка и спальные места
+                на четверых — удобнее и выгоднее, чем брать всё отдельно.
+              </p>
+              <ul class="rental-price-list">
+                <li>1 день — 115&nbsp;₾</li>
+                <li>2–4 дня — 100&nbsp;₾/сутки</li>
+                <li>5+ дней — 90&nbsp;₾/сутки</li>
+              </ul>
+              <button type="button" class="booking-button booking-button--compact" data-book="kit-4">
+                Забронировать
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="items" class="section section-alt">
+        <div class="container">
+          <h2>По отдельности</h2>
+          <ol class="rental-catalog">
+            <li>
+              <details>
+                <summary>
+                  <img src="images/rent/tent-2p.png" alt="Палатка 2-местная Quechua" width="72" height="72" />
+                  <span class="rental-item-main">
+                    <span class="rental-item-name">Палатка 2-местная Quechua</span>
+                    <span class="rental-item-price">от 25&nbsp;₾ / сутки</span>
+                  </span>
+                </summary>
+                <p class="rental-desc">
+                  Лёгкая палатка Quechua MH100 Fresh&nbsp;&amp;&nbsp;Black на двоих — для Казбеги, Сванетии и коротких выездов.
+                  Покажем, как быстро поставить, если едете впервые.
+                </p>
+                <p class="rental-specs">Вес 3,8&nbsp;кг · в чехле 58&nbsp;×&nbsp;18&nbsp;×&nbsp;18&nbsp;см</p>
+                <ul class="rental-price-list">
+                  <li>1 день — 35&nbsp;₾</li>
+                  <li>2–4 дня — 30&nbsp;₾/сутки</li>
+                  <li>5+ дней — 25&nbsp;₾/сутки</li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>
+                  <img src="images/rent/tent-4p.png" alt="Палатка 4-местная Quechua" width="72" height="72" />
+                  <span class="rental-item-main">
+                    <span class="rental-item-name">Палатка 4-местная Quechua</span>
+                    <span class="rental-item-price">от 45&nbsp;₾ / сутки</span>
+                  </span>
+                </summary>
+                <p class="rental-desc">
+                  Просторная палатка Quechua MH100 XXL с высоким тамбуром — можно стоять и оставить рюкзаки внутри.
+                  Для семьи или компании до четырёх человек.
+                </p>
+                <p class="rental-specs">Вес 8,8&nbsp;кг · в чехле 70&nbsp;×&nbsp;30&nbsp;×&nbsp;28&nbsp;см</p>
+                <ul class="rental-price-list">
+                  <li>1 день — 55&nbsp;₾</li>
+                  <li>2–4 дня — 50&nbsp;₾/сутки</li>
+                  <li>5+ дней — 45&nbsp;₾/сутки</li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>
+                  <img src="images/rent/sleeping-bag.png" alt="Спальник Comfort" width="72" height="72" />
+                  <span class="rental-item-main">
+                    <span class="rental-item-name">Спальник Comfort 10°C</span>
+                    <span class="rental-item-price">от 10&nbsp;₾ / сутки</span>
+                  </span>
+                </summary>
+                <p class="rental-desc">
+                  Прямоугольный спальник Comfort 10°C — больше места, чем в «мумии».
+                  Мягкий, подходит для тёплых ночей в горах и у моря.
+                  К каждому спальнику всегда выдаём чистый индивидуальный вкладыш — для гигиены и вашего комфорта.
+                </p>
+                <p class="rental-specs">Спальник 2,2&nbsp;кг (43&nbsp;×&nbsp;30&nbsp;×&nbsp;30&nbsp;см) · вкладыш 0,32&nbsp;кг</p>
+                <ul class="rental-price-list">
+                  <li>1 день — 15&nbsp;₾</li>
+                  <li>2–4 дня — 13&nbsp;₾/сутки</li>
+                  <li>5+ дней — 10&nbsp;₾/сутки</li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>
+                  <img src="images/rent/mat.png" alt="Коврик Comfort 8 см надувной" width="72" height="72" />
+                  <span class="rental-item-main">
+                    <span class="rental-item-name">Коврик Comfort 200×70×8&nbsp;см</span>
+                    <span class="rental-item-price">от 10&nbsp;₾ / сутки</span>
+                  </span>
+                </summary>
+                <p class="rental-desc">
+                  Толстый самонадувающийся коврик Comfort 200&nbsp;×&nbsp;70&nbsp;×&nbsp;8&nbsp;см — мягкий сон и тепло от земли.
+                  Удобнее тонкого пенного коврика на каменистых стоянках.
+                </p>
+                <p class="rental-specs">Вес 3,2&nbsp;кг · свёрнутый рулон 70&nbsp;×&nbsp;25&nbsp;см</p>
+                <ul class="rental-price-list">
+                  <li>1 день — 15&nbsp;₾</li>
+                  <li>2–4 дня — 13&nbsp;₾/сутки</li>
+                  <li>5+ дней — 10&nbsp;₾/сутки</li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>
+                  <img src="images/rent/chair.png" alt="Кресло складное с подстаканником" width="72" height="72" />
+                  <span class="rental-item-main">
+                    <span class="rental-item-name">Кресло складное</span>
+                    <span class="rental-item-price">от 6&nbsp;₾ / сутки</span>
+                  </span>
+                </summary>
+                <p class="rental-desc">
+                  Складное туристическое кресло с подлокотниками и сетчатым подстаканником.
+                  С ремнём для переноски — удобно у палатки и на пикнике.
+                </p>
+                <p class="rental-specs">Вес 2,8&nbsp;кг · в чехле 86&nbsp;×&nbsp;20&nbsp;×&nbsp;18&nbsp;см</p>
+                <ul class="rental-price-list">
+                  <li>1 день — 10&nbsp;₾</li>
+                  <li>2–4 дня — 8&nbsp;₾/сутки</li>
+                  <li>5+ дней — 6&nbsp;₾/сутки</li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>
+                  <img src="images/rent/burner.png" alt="Газовая горелка" width="72" height="72" />
+                  <span class="rental-item-main">
+                    <span class="rental-item-name">Газовая горелка</span>
+                    <span class="rental-item-price">по запросу</span>
+                  </span>
+                </summary>
+                <p class="rental-desc">
+                  Компактная горелка с пьезоподжигом — без спичек, помещается в ладонь.
+                  Баллон 230&nbsp;г подберём отдельно под ваш маршрут.
+                </p>
+                <p class="rental-specs">Горелка 0,18&nbsp;кг · баллон (полный) 0,38&nbsp;кг</p>
+              </details>
+            </li>
+          </ol>
+
+          <div class="rental-on-request">
+            <h3>По запросу</h3>
+            <ul class="rental-on-request-list">
+              <li>Стол складной на 4 человека — 4,8&nbsp;кг (60&nbsp;×&nbsp;60&nbsp;×&nbsp;7&nbsp;см)</li>
+              <li>Кемпинговый фонарь — 0,25&nbsp;кг</li>
+              <li>Пенка-сидушка — 0,04&nbsp;кг (40&nbsp;×&nbsp;30&nbsp;×&nbsp;2&nbsp;см)</li>
+              <li>Газовый баллон 230&nbsp;г — 0,38&nbsp;кг (полный)</li>
+              <li>Посуда и другое кемпинговое снаряжение</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="book" class="section">
+        <div class="container">
+          <h2>Забронировать</h2>
+          <p class="lead">
+            Выберите комплект или отдельные вещи, укажите даты — заявка уйдёт в Telegram, мы подтвердим наличие.
+          </p>
+
+          <form id="rental-request-form" class="rental-request-form">
+            <fieldset class="rental-choice">
+              <legend>1. Готовый комплект</legend>
+              <p class="rental-choice-hint">Палатка + спальники + коврики уже в наборе</p>
+              <label class="rental-choice-option">
+                <input type="radio" name="choice" value="kit-2" checked />
+                <span>Комплект для 2 человек</span>
+              </label>
+              <label class="rental-choice-option">
+                <input type="radio" name="choice" value="kit-4" />
+                <span>Семейный комплект (4 человека)</span>
+              </label>
+            </fieldset>
+
+            <div class="rental-choice-divider" role="separator">
+              <span>или</span>
             </div>
 
-            <aside class="shop-sidebar card">
-              <h2>Корзина</h2>
-              <p id="cart-empty">Корзина пуста</p>
-              <ul id="cart-items" class="cart-items"></ul>
-              <p class="cart-dates-label">Период аренды:</p>
-              <p id="cart-dates" class="cart-dates">Выберите даты в календаре</p>
+            <fieldset class="rental-choice rental-choice--diy">
+              <legend>Собрать самостоятельно</legend>
+              <p class="rental-choice-hint">Например, если вас трое — соберите палатку, спальники и коврики под своё число</p>
+              <label class="rental-choice-option">
+                <input type="radio" name="choice" value="custom" />
+                <span>Собрать самостоятельно</span>
+              </label>
+            </fieldset>
 
-              <div id="shop-calendar" class="shop-calendar"></div>
+            <div id="custom-items" class="rental-custom-items" hidden>
+              <label>
+                <input type="checkbox" name="item" value="Палатка 2-местная Quechua" data-p1="35" data-p24="30" data-p5="25" />
+                Палатка 2-местная Quechua
+                <input type="number" class="rental-mini-qty" name="qty-Палатка 2-местная Quechua" min="1" max="10" value="1" aria-label="Количество" />
+              </label>
+              <label>
+                <input type="checkbox" name="item" value="Палатка 4-местная Quechua" data-p1="55" data-p24="50" data-p5="45" />
+                Палатка 4-местная Quechua
+                <input type="number" class="rental-mini-qty" name="qty-Палатка 4-местная Quechua" min="1" max="10" value="1" aria-label="Количество" />
+              </label>
+              <label>
+                <input type="checkbox" name="item" value="Спальник Comfort" data-p1="15" data-p24="13" data-p5="10" />
+                Спальник Comfort
+                <input type="number" class="rental-mini-qty" name="qty-Спальник Comfort" min="1" max="10" value="3" aria-label="Количество" />
+              </label>
+              <label>
+                <input type="checkbox" name="item" value="Коврик Comfort 8 см" data-p1="15" data-p24="13" data-p5="10" />
+                Коврик Comfort 8&nbsp;см
+                <input type="number" class="rental-mini-qty" name="qty-Коврик Comfort 8 см" min="1" max="10" value="3" aria-label="Количество" />
+              </label>
+            </div>
 
-              <p class="cart-total-label">Итого:</p>
-              <p id="cart-total" class="cart-total">—</p>
-              <p id="cart-error" class="shop-error"></p>
+            <div id="kit-addons" class="rental-addons">
+              <p class="rental-addons-title">2. Опции дополнительно</p>
+              <p class="rental-choice-hint">После комплекта или своей сборки — кресло, горелка, стол и другое</p>
+              <div class="rental-custom-items rental-custom-items--flat">
+                <label>
+                  <input type="checkbox" name="addon" value="Кресло складное" data-p1="10" data-p24="8" data-p5="6" />
+                  Кресло складное
+                  <input type="number" class="rental-mini-qty" name="qty-addon-Кресло складное" min="1" max="10" value="1" aria-label="Количество" />
+                </label>
+                <label>
+                  <input type="checkbox" name="addon" value="Газовая горелка" data-p1="0" data-p24="0" data-p5="0" />
+                  Газовая горелка
+                  <input type="number" class="rental-mini-qty" name="qty-addon-Газовая горелка" min="1" max="10" value="1" aria-label="Количество" />
+                </label>
+                <label>
+                  <input type="checkbox" name="addon" value="Стол складной" data-p1="0" data-p24="0" data-p5="0" />
+                  Стол складной
+                  <input type="number" class="rental-mini-qty" name="qty-addon-Стол складной" min="1" max="10" value="1" aria-label="Количество" />
+                </label>
+                <label>
+                  <input type="checkbox" name="addon" value="Фонарь" data-p1="0" data-p24="0" data-p5="0" />
+                  Кемпинговый фонарь
+                  <input type="number" class="rental-mini-qty" name="qty-addon-Фонарь" min="1" max="10" value="1" aria-label="Количество" />
+                </label>
+                <label>
+                  <input type="checkbox" name="addon" value="Пенка-сидушка" data-p1="0" data-p24="0" data-p5="0" />
+                  Пенка-сидушка
+                  <input type="number" class="rental-mini-qty" name="qty-addon-Пенка-сидушка" min="1" max="10" value="1" aria-label="Количество" />
+                </label>
+              </div>
+            </div>
 
-              <form id="checkout-form" class="checkout-form">
-                <h3>Оформление заказа</h3>
-                <label>
-                  Имя
-                  <input type="text" id="contact-name" required autocomplete="name" />
-                </label>
-                <label>
-                  Телефон
-                  <input type="tel" id="contact-phone" required autocomplete="tel" />
-                </label>
-                <label>
-                  Email (необязательно)
-                  <input type="email" id="contact-email" autocomplete="email" />
-                </label>
-                <label>
-                  Комментарий
-                  <textarea id="contact-comment" rows="2"></textarea>
-                </label>
-                <p id="checkout-error" class="shop-error"></p>
-                <button type="submit" id="checkout-submit" class="booking-button">Оформить заказ</button>
-              </form>
-            </aside>
-          </div>
+            <div class="rental-dates">
+              <label>
+                Дата начала
+                <input type="date" id="rent-start" name="start" required />
+              </label>
+              <label>
+                Дата окончания
+                <input type="date" id="rent-end" name="end" required />
+              </label>
+            </div>
+
+            <div class="rental-contact-grid">
+              <label>
+                Сколько человек
+                <input type="number" id="rent-people" name="people" min="1" max="20" value="2" required />
+              </label>
+              <label>
+                Куда едете
+                <input type="text" id="rent-destination" name="destination" placeholder="Казбеги, Сванетия…" />
+              </label>
+              <label>
+                Имя
+                <input type="text" id="rent-name" name="name" required autocomplete="name" />
+              </label>
+              <label>
+                Телефон
+                <input type="tel" id="rent-phone" name="phone" required autocomplete="tel" />
+              </label>
+            </div>
+
+            <label class="rental-comment">
+              Комментарий
+              <textarea id="rent-comment" name="comment" rows="2" placeholder="Уточнения по размеру палатки, времени выдачи…"></textarea>
+            </label>
+
+            <p id="rent-estimate" class="rental-estimate">Выберите даты — покажем ориентир по цене</p>
+            <p id="rent-form-error" class="shop-error" hidden></p>
+
+            <button type="submit" class="booking-button">Отправить заявку в Telegram</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <h2>Почему выбирают нас</h2>
+          <ul class="rental-benefits">
+            <li>Современное оборудование Decathlon Quechua</li>
+            <li>Всё чистое, проверенное и готовое к поездке</li>
+            <li>Снаряжение обрабатывается после каждого клиента</li>
+            <li>Поможем подобрать комплект под ваш маршрут и количество человек</li>
+            <li>Покажем, как быстро установить палатку</li>
+            <li>Подходит даже тем, кто едет с палаткой впервые</li>
+          </ul>
         </div>
       </section>
     </main>
@@ -90,7 +380,6 @@
       </div>
     </footer>
 
-    <script src="js/config.js"></script>
-    <script src="js/shop.js"></script>
+    <script src="js/rental-request.js"></script>
   </body>
 </html>

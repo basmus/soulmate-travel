@@ -3,6 +3,8 @@ from sqlalchemy.orm import Session
 from models import Equipment, Order, OrderItem, OrderSource, OrderStatus
 from schemas import OrderCreateIn, OrderItemOut, OrderOut, OrderPreviewIn, OrderPreviewOut
 from services.availability import is_range_available_for_cart, rental_days
+from services.pricing import price_for_days
+from config import settings
 
 
 def build_order_items(db: Session, payload: OrderPreviewIn) -> tuple[list[OrderItemOut], float]:
@@ -18,7 +20,7 @@ def build_order_items(db: Session, payload: OrderPreviewIn) -> tuple[list[OrderI
         if not equipment or not equipment.is_active:
             raise ValueError(f"Оборудование id={item_in.equipment_id} недоступно")
 
-        price = float(equipment.price_per_day)
+        price = price_for_days(equipment, days)
         subtotal = round(price * days * item_in.quantity, 2)
         total += subtotal
         lines.append(
@@ -43,7 +45,12 @@ def preview_order(db: Session, payload: OrderPreviewIn) -> OrderPreviewOut:
 
     lines, total = build_order_items(db, payload)
     days = rental_days(payload.start_date, payload.end_date)
-    return OrderPreviewOut(days=days, total_price=total, items=lines)
+    return OrderPreviewOut(
+        days=days,
+        total_price=total,
+        items=lines,
+        currency=settings.default_currency,
+    )
 
 
 def create_order(db: Session, payload: OrderCreateIn) -> Order:
@@ -121,4 +128,5 @@ def order_to_out(order: Order) -> OrderOut:
         status=order.status.value,
         created_at=order.created_at,
         items=items,
+        currency=settings.default_currency,
     )

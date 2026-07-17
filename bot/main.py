@@ -16,15 +16,20 @@ dp.include_router(admin.router)
 
 
 async def notify_admins_new_order(order: dict):
-    items = ", ".join(i["equipment_name"] for i in order["items"])
+    items = ", ".join(
+        f"{i['equipment_name']} ×{i['quantity']}" for i in order["items"]
+    )
+    currency = order.get("currency") or "₾"
     text = (
         f"🆕 Новый заказ #{order['id']} [{order['source']}]\n"
         f"{items}\n"
-        f"{order['start_date']} — {order['end_date']}\n"
-        f"{order['total_price']} EUR\n"
+        f"{order['start_date']} — {order['end_date']} ({order.get('days', '?')} дн.)\n"
+        f"{order['total_price']} {currency}\n"
         f"Контакт: {order.get('contact_name') or '—'}, {order.get('contact_phone') or '—'}\n"
-        f"/confirm_{order['id']}  /cancel_{order['id']}"
     )
+    if order.get("comment"):
+        text += f"Комментарий: {order['comment']}\n"
+    text += f"/confirm_{order['id']}  /cancel_{order['id']}"
     for admin_id in settings.admin_ids:
         try:
             await bot.send_message(admin_id, text)

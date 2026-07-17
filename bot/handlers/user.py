@@ -20,7 +20,7 @@ def format_order_summary(data: dict, preview: dict) -> str:
     return (
         f"📦 {eq_name}\n"
         f"📅 {start} — {end} ({preview['days']} дн.)\n"
-        f"💰 Итого: {preview['total_price']} EUR"
+        f"💰 Итого: {preview['total_price']} ₾"
     )
 
 
@@ -52,7 +52,7 @@ async def cmd_start(message: Message, state: FSMContext):
             avail = await availability_map(item["id"], today.year, today.month)
             kb = build_calendar(today.year, today.month, avail, mode="start")
             await message.answer(
-                f"«{item['name']}» — {item['price_per_day']} EUR/день\n\nВыберите дату начала аренды:",
+                f"«{item['name']}» — от {item.get('price_5_plus_days', item['price_per_day'])} ₾/день\n\nВыберите дату начала аренды:",
                 reply_markup=kb,
             )
             return
@@ -75,7 +75,7 @@ async def book_start(callback: CallbackQuery, state: FSMContext):
     await state.clear()
     equipment_list = await api.get_equipment()
     rows = [
-        [InlineKeyboardButton(text=f"{e['name']} — {e['price_per_day']} €/д", callback_data=f"eq:{e['id']}")]
+        [InlineKeyboardButton(text=f"{e['name']} — от {e['price_5_plus_days']} ₾/д", callback_data=f"eq:{e['id']}")]
         for e in equipment_list
     ]
     await state.set_state(BookingStates.choosing_equipment)
@@ -94,7 +94,7 @@ async def equipment_chosen(callback: CallbackQuery, state: FSMContext):
     avail = await availability_map(eq_id, today.year, today.month)
     kb = build_calendar(today.year, today.month, avail, mode="start")
     await callback.message.edit_text(
-        f"«{item['name']}» — {item['price_per_day']} EUR/день\n\nВыберите дату начала аренды:",
+        f"«{item['name']}» — от {item.get('price_5_plus_days', item['price_per_day'])} ₾/день\n\nВыберите дату начала аренды:",
         reply_markup=kb,
     )
     await callback.answer()
@@ -226,7 +226,7 @@ async def finalize_booking(message: Message, state: FSMContext, user):
     )
     await message.answer(
         f"✅ Бронь #{order['id']} создана!\n\n"
-        f"Сумма: {order['total_price']} EUR\n"
+        f"Сумма: {order['total_price']} ₾\n"
         f"Статус: ожидает оплаты\n\n"
         f"Оплатите заказ на сайте или напишите нам в Telegram.",
         reply_markup=kb,
@@ -246,7 +246,7 @@ async def my_bookings(callback: CallbackQuery):
         items = ", ".join(i["equipment_name"] for i in o["items"])
         lines.append(
             f"#{o['id']} — {items}\n"
-            f"{o['start_date']} — {o['end_date']} | {o['total_price']} EUR | {o['status']}"
+            f"{o['start_date']} — {o['end_date']} | {o['total_price']} ₾ | {o['status']}"
         )
     await callback.message.edit_text("📋 Ваши брони:\n\n" + "\n\n".join(lines))
     await callback.answer()
@@ -263,6 +263,6 @@ async def cmd_my_bookings(message: Message):
         items = ", ".join(i["equipment_name"] for i in o["items"])
         lines.append(
             f"#{o['id']} — {items}\n"
-            f"{o['start_date']} — {o['end_date']} | {o['total_price']} EUR | {o['status']}"
+            f"{o['start_date']} — {o['end_date']} | {o['total_price']} ₾ | {o['status']}"
         )
     await message.answer("📋 Ваши брони:\n\n" + "\n\n".join(lines))

@@ -41,42 +41,88 @@ function daysBetween(start, end) {
   return Math.round((e - s) / 86400000) + 1;
 }
 
-function renderProducts() {
-  const grid = document.getElementById("shop-grid");
-  if (!grid) return;
-  grid.innerHTML = equipmentList
-    .map(
-      (e) => `
-    <article class="shop-card card" data-id="${e.id}">
-      <div class="shop-card-photo">
-        <img src="${e.photo_url}" alt="${e.name}" onerror="this.src='images/rent/placeholder.svg'" />
-      </div>
-      <div class="shop-card-body">
-        <h3>${e.name}</h3>
-        <p class="shop-card-desc">${e.description}</p>
-        <p class="shop-card-price">${e.price_per_day} ${cfg.currency} / день</p>
-        <button type="button" class="booking-button booking-button--compact shop-add-btn" data-id="${e.id}">
-          ${cart.has(e.id) ? "✓ В корзине" : "В корзину"}
-        </button>
-      </div>
-    </article>`
-    )
-    .join("");
-
-  grid.querySelectorAll(".shop-add-btn").forEach((btn) => {
-    btn.addEventListener("click", () => toggleCartItem(Number(btn.dataset.id)));
-  });
+function currency() {
+  return cfg.currency || "₾";
 }
 
-function toggleCartItem(id) {
-  if (cart.has(id)) {
-    cart.delete(id);
-  } else {
-    cart.set(id, 1);
-  }
-  renderProducts();
-  renderCart();
-  updatePreview();
+function priceForDays(item, days) {
+  if (days <= 1) return Number(item.price_1_day);
+  if (days <= 4) return Number(item.price_2_4_days);
+  return Number(item.price_5_plus_days);
+}
+
+function minPrice(item) {
+  return Math.min(
+    Number(item.price_1_day),
+    Number(item.price_2_4_days),
+    Number(item.price_5_plus_days)
+  );
+}
+
+function catalogQty(id) {
+  const input = document.querySelector(`.rental-qty-input[data-id="${id}"]`);
+  const n = input ? parseInt(input.value, 10) : 1;
+  return Number.isFinite(n) && n >= 1 ? Math.min(n, 10) : 1;
+}
+
+function renderCatalog() {
+  const list = document.getElementById("rental-catalog");
+  if (!list) return;
+
+  const sorted = [...equipmentList].sort((a, b) => {
+    const rank = (e) => (String(e.slug).startsWith("kit") ? 0 : 1);
+    return rank(a) - rank(b) || a.id - b.id;
+  });
+
+  list.innerHTML = sorted
+    .map((e) => {
+      const inCart = cart.has(e.id);
+      const qty = inCart ? cart.get(e.id) : 1;
+      const photo = e.photo_url || "images/rent/placeholder.svg";
+      const isKit = String(e.slug).startsWith("kit");
+      return `
+      <li data-id="${e.id}" class="${isKit ? "rental-catalog-item--kit" : ""}">
+        <details ${inCart || isKit ? "open" : ""}>
+          <summary>
+            <img src="${photo}" alt="${e.name}" width="72" height="72"
+              onerror="this.src='images/rent/placeholder.svg'" />
+            <span class="rental-item-main">
+              ${isKit ? '<span class="rental-item-badge">Комплект</span>' : ""}
+              <span class="rental-item-name">${e.name}</span>
+              <span class="rental-item-price">от ${minPrice(e)}&nbsp;${currency()} / сутки</span>
+            </span>
+          </summary>
+          <p>${e.description || ""}</p>
+          <div class="rental-price-tiers">
+            <span>1 день — ${e.price_1_day}&nbsp;${currency()}</span>
+            <span>2–4 дня — ${e.price_2_4_days}&nbsp;${currency()}/сутки</span>
+            <span>5+ дней — ${e.price_5_plus_days}&nbsp;${currency()}/сутки</span>
+          </div>
+          <div class="rental-add-row">
+            <label class="rental-qty">
+              Кол-во
+              <input type="number" class="rental-qty-input" data-id="${e.id}"
+                min="1" max="10" value="${qty}" />
+            </label>
+            <button type="button" class="booking-button booking-button--compact shop-add-btn" data-id="${e.id}">
+              ${inCart ? "Обновить в корзине" : "В корзину"}
+            </button>
+          </div>
+        </details>
+      </li>`;
+    })
+    .join("");
+
+  list.querySelectorAll(".shop-add-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = Number(btn.dataset.id);
+      cart.set(id, catalogQty(id));
+      renderCatalog();
+      renderCart();
+      renderCalendar();
+      updatePreview();
+    });
+  });
 }
 
 function renderCart() {
@@ -87,29 +133,56 @@ function renderCart() {
   if (cart.size === 0) {
     list.innerHTML = "";
     empty.hidden = false;
-    return;
-  }
-  empty.hidden = true;
+  } else {
+    empty.hidden = true;
+    list.innerHTML = [...cart.entries()]
+      .map(([id, qty]) => {
+        const e = equipmentList.find((x) => x.id === id);
+        if (!e) return "";
+        const days = startDate && endDate ? daysBetween(startDate, endDate) : null;
+        const dayPrice = days ? priceForDays(e, days) : null;
+        const lineHint = dayPrice
+          ? `${dayPrice} ${currency()}/день × ${days} × ${qty}`
+          : `× ${qty}`;
+        return `<li class="cart-item">
+          <div class="cart-item-info">
+            <span class="cart-item-name">${e.name}</span>
+            <span class="cart-item-meta">${lineHint}</span>
+          </div>
+          <div class="cart-item-controls">
+            <button type="button" class="cart-qty-btn" data-id="${id}" data-delta="-1" aria-label="Меньше">−</button>
+            <span class="cart-qty-value">${qty}</span>
+            <button type="button" class="cart-qty-btn" data-id="${id}" data-delta="1" aria-label="Больше">+</button>
+            <button type="button" class="cart-remove" data-id="${id}" aria-label="Удалить">×</button>
+          </div>
+        </li>`;
+      })
+      .join("");
 
-  list.innerHTML = [...cart.entries()]
-    .map(([id, qty]) => {
-      const e = equipmentList.find((x) => x.id === id);
-      if (!e) return "";
-      return `<li class="cart-item">
-        <span>${e.name}</span>
-        <button type="button" class="cart-remove" data-id="${id}" aria-label="Удалить">×</button>
-      </li>`;
-    })
-    .join("");
-
-  list.querySelectorAll(".cart-remove").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      cart.delete(Number(btn.dataset.id));
-      renderProducts();
-      renderCart();
-      updatePreview();
+    list.querySelectorAll(".cart-qty-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = Number(btn.dataset.id);
+        const delta = Number(btn.dataset.delta);
+        const next = (cart.get(id) || 1) + delta;
+        if (next < 1) cart.delete(id);
+        else cart.set(id, Math.min(next, 10));
+        renderCatalog();
+        renderCart();
+        renderCalendar();
+        updatePreview();
+      });
     });
-  });
+
+    list.querySelectorAll(".cart-remove").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        cart.delete(Number(btn.dataset.id));
+        renderCatalog();
+        renderCart();
+        renderCalendar();
+        updatePreview();
+      });
+    });
+  }
 
   document.getElementById("cart-dates").textContent =
     startDate && endDate
@@ -136,8 +209,10 @@ function minAvailable(dayStr) {
   if (!ids.length) return 0;
   let min = Infinity;
   for (const id of ids) {
+    const need = cart.has(id) ? cart.get(id) : 1;
     const avail = availabilityCache[id]?.[dayStr] ?? 0;
-    min = Math.min(min, avail);
+    min = Math.min(min, Math.floor(avail / need) > 0 ? avail : 0);
+    if (avail < need) min = 0;
   }
   return min === Infinity ? 0 : min;
 }
@@ -146,7 +221,12 @@ async function renderCalendar() {
   const el = document.getElementById("shop-calendar");
   if (!el) return;
 
-  await loadAvailabilityForCart();
+  try {
+    await loadAvailabilityForCart();
+  } catch {
+    el.innerHTML = `<p class="shop-error">Не удалось загрузить календарь</p>`;
+    return;
+  }
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -175,6 +255,7 @@ async function renderCalendar() {
       selectable = selectable && dayStr >= startDate;
     }
     if (dayStr === startDate || dayStr === endDate) cls += " cal-day--selected";
+    else if (startDate && endDate && dayStr > startDate && dayStr < endDate) cls += " cal-day--in-range";
     if (!selectable) cls += " cal-day--disabled";
     else cls += " cal-day--active";
     html += selectable
@@ -186,12 +267,18 @@ async function renderCalendar() {
 
   document.getElementById("cal-prev").addEventListener("click", () => {
     calMonth--;
-    if (calMonth < 1) { calMonth = 12; calYear--; }
+    if (calMonth < 1) {
+      calMonth = 12;
+      calYear--;
+    }
     renderCalendar();
   });
   document.getElementById("cal-next").addEventListener("click", () => {
     calMonth++;
-    if (calMonth > 12) { calMonth = 1; calYear++; }
+    if (calMonth > 12) {
+      calMonth = 1;
+      calYear++;
+    }
     renderCalendar();
   });
 
@@ -220,7 +307,10 @@ async function updatePreview() {
   errEl.textContent = "";
   totalEl.textContent = "—";
 
-  if (!cart.size || !startDate || !endDate) return;
+  if (!cart.size || !startDate || !endDate) {
+    renderCart();
+    return;
+  }
 
   const payload = {
     start_date: startDate,
@@ -230,7 +320,9 @@ async function updatePreview() {
 
   try {
     const preview = await api("/orders/preview", { method: "POST", body: JSON.stringify(payload) });
-    totalEl.textContent = `${preview.total_price} ${cfg.currency}`;
+    const cur = preview.currency || currency();
+    totalEl.textContent = `${preview.total_price} ${cur} (${preview.days} дн.)`;
+    renderCart();
   } catch (e) {
     errEl.textContent = e.message;
   }
@@ -278,11 +370,12 @@ async function init() {
   try {
     equipmentList = await api("/equipment");
     statusEl.hidden = true;
-    renderProducts();
+    renderCatalog();
     renderCart();
     await renderCalendar();
   } catch (e) {
-    statusEl.textContent = `Не удалось загрузить магазин. Проверьте, что API запущен (${cfg.apiUrl}).`;
+    statusEl.textContent = `Не удалось загрузить прокат. Проверьте, что API запущен (${cfg.apiUrl}), или напишите в Telegram.`;
+    statusEl.hidden = false;
   }
 
   document.getElementById("checkout-form")?.addEventListener("submit", submitOrder);

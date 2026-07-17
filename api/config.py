@@ -11,7 +11,7 @@ class Settings(BaseSettings):
         "Для оплаты напишите в Telegram @soulmate_travel_georgia или переведите на реквизиты, "
         "которые мы пришлём после подтверждения заказа."
     )
-    default_currency: str = "EUR"
+    default_currency: str = "₾"
     cors_origins: str = "http://localhost:5500,http://127.0.0.1:5500,http://localhost:8080"
     admin_api_key: str = "change-me-in-production"
     telegram_bot_token: str = ""

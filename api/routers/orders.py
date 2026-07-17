@@ -1,5 +1,7 @@
 from fastapi import APIRouter, BackgroundTasks, Depends, Header, HTTPException, Query
 from sqlalchemy.orm import Session, joinedload
+
+from config import settings
 from database import get_db
 from models import Equipment, Order, OrderItem, OrderStatus
 from schemas import (
@@ -126,6 +128,8 @@ def admin_update_equipment(equipment_id: int, payload: EquipmentUpdateIn, db: Se
         raise HTTPException(status_code=404, detail="Not found")
     for field, value in payload.model_dump(exclude_unset=True).items():
         setattr(item, field, value)
+    if payload.price_per_day is not None and payload.price_5_plus_days is None:
+        item.price_5_plus_days = payload.price_per_day
     db.commit()
     db.refresh(item)
     return item
