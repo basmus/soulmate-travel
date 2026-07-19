@@ -3,20 +3,32 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Любовь — гид по Тбилиси</title>
+    <title data-i18n-title="meta.title">Любовь — гид по Тбилиси</title>
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png" />
     <link rel="icon" href="images/favicon/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="images/favicon/site.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      (function () {
+        try {
+          var l = localStorage.getItem("site-lang");
+          if (l === "en" || l === "ru") document.documentElement.lang = l;
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <header class="hero">
       <div class="container">
         <div class="hero-top">
-          <p class="eyebrow">Маршруты и путешествия по Грузии</p>
+          <p class="eyebrow" data-i18n="hero.eyebrow">Маршруты и путешествия по Грузии</p>
           <div class="hero-contacts">
+            <div class="lang-switch" role="group" aria-label="Language">
+              <button type="button" class="lang-switch__btn" data-lang="ru" aria-pressed="true">RU</button>
+              <button type="button" class="lang-switch__btn" data-lang="en" aria-pressed="false">EN</button>
+            </div>
             <a href="https://instagram.com/soulmate_travel_georgia" target="_blank" rel="noreferrer"
               >Instagram</a
             >
@@ -25,19 +37,19 @@
             >
           </div>
         </div>
-        <h1>Путешествуй по Грузии самостоятельно</h1>
-        <p class="lead">
+        <h1 data-i18n="hero.title">Путешествуй по Грузии самостоятельно</h1>
+        <p class="lead" data-i18n="hero.lead1">
           Продуманные маршруты для самостоятельных путешествий по Тбилиси и Грузии.
         </p>
-        <p class="lead">
+        <p class="lead" data-i18n="hero.lead2">
           Готовые путеводители, атмосферные места и аренда туристического снаряжения.
         </p>
         <nav class="hero-nav">
-          <a href="#about">Обо мне</a>
-          <a href="#routes">Маршруты</a>
-          <a href="#adventures">Приключения и впечатления</a>
-          <a href="shop.html">Прокат</a>
-          <a href="#reviews">Отзывы</a>
+          <a href="#about" data-i18n="nav.about">Обо мне</a>
+          <a href="#routes" data-i18n="nav.routes">Маршруты</a>
+          <a href="#adventures" data-i18n="nav.adventures">Приключения и впечатления</a>
+          <a href="shop.html" data-i18n="nav.rental">Прокат</a>
+          <a href="#reviews" data-i18n="nav.reviews">Отзывы</a>
         </nav>
       </div>
     </header>
@@ -45,26 +57,27 @@
     <main>
       <section id="about" class="section">
         <div class="container">
-          <h2>Обо мне</h2>
+          <h2 data-i18n="about.title">Обо мне</h2>
           <div class="about-grid">
             <div class="about-photo">
               <img
                 src="images/guide-lyubov.webp"
                 alt="Фото гида Любови"
+                data-i18n-alt="about.alt"
               />
             </div>
             <div class="text-block">
-            <p>Привет! Я – Любовь, гид по Тбилиси и Грузии.</p>
-            <p>
+            <p data-i18n="about.p1">Привет! Я – Любовь, гид по Тбилиси и Грузии.</p>
+            <p data-i18n="about.p2">
               Тбилиси — город сложный и многослойный. За несколько лет жизни здесь я научилась читать его через архитектуру, пространство и детали, которые легко пропустить на первый взгляд. Моя работа опирается на профессиональную подготовку, внимательное отношение и уважение к ритму человека.
             </p>
-            <p>
+            <p data-i18n="about.p3">
               Моя профессиональная жизнь начиналась в другой сфере. Инженерное образование и предыдущий опыт работы микробиологом связаны с производством. Это развило у меня внимание к процессам и умение замечать детали, что позволяет делать экскурсии осмысленными и насыщенными. Такой подход естественным образом привёл меня к производственной экскурсии на крафтовой пивоварне и интересу к технологиям грузинского виноделия.
             </p>
-            <p>
+            <p data-i18n="about.p4">
               Экскурсии со мной — это не только знакомство с историей Тбилиси, но и погружение в уникальную атмосферу города, исследование его культуры и архитектуры. Я показываю скрытые уголки и истории, которые делают прогулку неповторимой.
             </p>
-            <p>
+            <p data-i18n="about.p5">
               Выездные экскурсии за пределами Тбилиси позволяют насладиться потрясающими горными пейзажами, изучить храмы и интересные локации, устроить пикник в душевной атмосфере.
             </p>
             </div>
@@ -74,26 +87,26 @@
 
       <section id="routes" class="section section-alt">
         <div class="container">
-          <h2>Маршруты</h2>
+          <h2 data-i18n="routes.title">Маршруты</h2>
 
           <div class="routes-list">
           <article class="card card-route">
             <div class="route-main">
               <div class="route-cover">
                 <span class="route-free-badge">FREE</span>
-                <img src="images/tbilisi/tour-tbilisi-01.jpg" alt="Историческая застройка Тбилиси — балконы, канатная дорога" />
+                <img src="images/tbilisi/tour-tbilisi-01.jpg" alt="Историческая застройка Тбилиси — балконы, канатная дорога" data-i18n-alt="routes.tbilisi.alt" />
               </div>
               <div class="route-main-text">
                 <div class="card-header">
-                  <h3>
+                  <h3 data-i18n="routes.tbilisi.title" data-i18n-html>
                     Вековая палитра Тбилиси:<br>от архитектурных эпох до уличного стиля
                   </h3>
-                  <p class="card-subtitle">Обзорная прогулка по Тбилиси</p>
+                  <p class="card-subtitle" data-i18n="routes.tbilisi.subtitle">Обзорная прогулка по Тбилиси</p>
                 </div>
-                <p class="card-lead">
+                <p class="card-lead" data-i18n="routes.tbilisi.lead">
                   Авторская пешая экскурсия, в которой вы увидите не только самые популярные, но и скрытые на первый взгляд места, которые раскрывают душу страны, культуру и понимание ее жителей. Тбилиси — город музей под открытым небом, в котором каждый квартал наполнен историями и искусством.
                 </p>
-                <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button booking-button--compact">Получить материал</a>
+                <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button booking-button--compact" data-i18n="routes.cta">Получить материал</a>
               </div>
             </div>
           </article>
@@ -102,24 +115,24 @@
             <div class="route-main">
               <div class="route-cover">
                 <span class="route-free-badge">FREE</span>
-                <img src="images/mtskheta/tour-mtskheta-03.jpg" alt="Улица Мцхеты — собор Светицховели, сувенирные лавки и грузинские флаги" />
+                <img src="images/mtskheta/tour-mtskheta-03.jpg" alt="Улица Мцхеты — собор Светицховели, сувенирные лавки и грузинские флаги" data-i18n-alt="routes.mtskheta.alt" />
               </div>
               <div class="route-main-text">
                 <div class="card-header">
-                  <h3>
+                  <h3 data-i18n="routes.mtskheta.title">
                     Где сходятся реки и эпохи: путешествие по Мцхете и
                     окрестностям. Пикник на склонах
                   </h3>
-                  <p class="card-subtitle">Мцхета</p>
+                  <p class="card-subtitle" data-i18n="routes.mtskheta.subtitle">Мцхета</p>
                 </div>
-                <p class="card-lead">
+                <p class="card-lead" data-i18n="routes.mtskheta.lead">
                   Мцхета — древняя столица Грузии, насчитывающая около 2500 лет
                   истории. Уютные улочки, великолепные виды и величайшие святыни
                   грузинского народа. Вокруг Мцхеты сосредоточены архитектурные
                   и культурные сокровища, а каждый объект окружен живописными
                   горами.
                 </p>
-                <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button booking-button--compact">Получить материал</a>
+                <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button booking-button--compact" data-i18n="routes.cta">Получить материал</a>
               </div>
             </div>
           </article>
@@ -128,22 +141,22 @@
             <div class="route-main">
               <div class="route-cover">
                 <span class="route-free-badge">FREE</span>
-                <img src="images/david-gareji/tour-david-gareji-01.jpg" alt="Группа на фоне разноцветных холмов Гареджийской пустыни" />
+                <img src="images/david-gareji/tour-david-gareji-01.jpg" alt="Группа на фоне разноцветных холмов Гареджийской пустыни" data-i18n-alt="routes.gareji.alt" />
               </div>
               <div class="route-main-text">
                 <div class="card-header">
-                  <h3>
+                  <h3 data-i18n="routes.gareji.title">
                     Цветные холмы Гареджийской пустыни. Путешествие к пещерному
                     монастырю Давид Гареджи
                   </h3>
-                  <p class="card-subtitle">Давид Гареджи</p>
+                  <p class="card-subtitle" data-i18n="routes.gareji.subtitle">Давид Гареджи</p>
                 </div>
-                <p class="card-lead">
+                <p class="card-lead" data-i18n="routes.gareji.lead">
                   Автопутешествие-экскурсия к религиозному центру пещерных
                   монастырей и необычному природному объекту — полупустыне
                   Гареджи с яркими разноцветными холмами.
                 </p>
-                <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button booking-button--compact">Получить материал</a>
+                <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button booking-button--compact" data-i18n="routes.cta">Получить материал</a>
               </div>
             </div>
           </article>
@@ -151,15 +164,15 @@
           <article class="card card-route">
             <div class="route-main">
               <div class="route-cover">
-                <img src="images/mtskheta/tour-mtskheta-06.jpg" alt="Окрестности Кахетии и горный пейзаж" />
+                <img src="images/mtskheta/tour-mtskheta-06.jpg" alt="Окрестности Кахетии и горный пейзаж" data-i18n-alt="routes.kakheti.alt" />
               </div>
               <div class="route-main-text">
                 <div class="card-header">
-                  <h3>Кахетия</h3>
-                  <p class="card-subtitle">Маршрут PDF</p>
+                  <h3 data-i18n="routes.kakheti.title">Кахетия</h3>
+                  <p class="card-subtitle" data-i18n="routes.kakheti.subtitle">Маршрут PDF</p>
                 </div>
-                <p class="card-lead">Скоро</p>
-                <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button booking-button--compact">Получить материал</a>
+                <p class="card-lead" data-i18n="routes.kakheti.lead">Скоро</p>
+                <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button booking-button--compact" data-i18n="routes.cta">Получить материал</a>
               </div>
             </div>
           </article>
@@ -170,32 +183,32 @@
 
       <section id="adventures" class="section">
         <div class="container">
-          <h2>Приключения и впечатления</h2>
+          <h2 data-i18n="adventures.title">Приключения и впечатления</h2>
 
           <article class="card">
             <div class="tour-main tour-main--portrait">
               <div class="tour-cover-carousel carousel-3-4">
-                <button type="button" class="carousel-prev" aria-label="Предыдущее фото">‹</button>
+                <button type="button" class="carousel-prev" aria-label="Предыдущее фото" data-i18n-aria="carousel.prev">‹</button>
                 <div class="carousel-track">
                   <figure class="carousel-slide">
-                    <img src="images/photo-session/tour-photo-session-01.png" alt="Фотосессия в национальном костюме на фоне старого Тбилиси" />
-                    <figcaption>Национальный костюм и виды на Абанотубани</figcaption>
+                    <img src="images/photo-session/tour-photo-session-01.png" alt="Фотосессия в национальном костюме на фоне старого Тбилиси" data-i18n-alt="photo.alt" />
+                    <figcaption data-i18n="photo.caption">Национальный костюм и виды на Абанотубани</figcaption>
                   </figure>
                 </div>
-                <button type="button" class="carousel-next" aria-label="Следующее фото">›</button>
+                <button type="button" class="carousel-next" aria-label="Следующее фото" data-i18n-aria="carousel.next">›</button>
               </div>
               <div class="tour-main-text">
                 <div class="card-header">
-                  <h3>
+                  <h3 data-i18n="photo.title">
                     Фотосессия в нац костюмах с видами на старый Тбилиси
                   </h3>
-                  <p class="card-subtitle">Тбилиси</p>
+                  <p class="card-subtitle" data-i18n="photo.subtitle">Тбилиси</p>
                 </div>
-                <p class="card-lead">
+                <p class="card-lead" data-i18n="photo.lead">
                   Профессиональная фотосессия в традиционных грузинских костюмах на фоне старого города — купола серных бань, крепостные стены и панорамы исторического Тбилиси.
                 </p>
                 <div class="tour-booking">
-                  <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button">Заказать впечатление</a>
+                  <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button" data-i18n="photo.cta">Заказать впечатление</a>
                 </div>
               </div>
             </div>
@@ -204,146 +217,146 @@
           <article class="card">
             <div class="tour-main tour-main--portrait">
               <div class="tour-cover-carousel carousel-3-4">
-                <button type="button" class="carousel-prev" aria-label="Предыдущее фото">‹</button>
+                <button type="button" class="carousel-prev" aria-label="Предыдущее фото" data-i18n-aria="carousel.prev">‹</button>
                 <div class="carousel-track">
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/tour-samshvilde-01.png" alt="Вид с высоты на зелёные каньоны рек Храми и Чивчави у Самшвилде" />
-                    <figcaption>Каньоны у древнего Самшвилде — панорама с высоты</figcaption>
+                    <img src="images/samshvilde/tour-samshvilde-01.png" alt="Вид с высоты на зелёные каньоны рек Храми и Чивчави у Самшвилде" data-i18n-alt="samshvilde.c1alt" />
+                    <figcaption data-i18n="samshvilde.c1">Каньоны у древнего Самшвилде — панорама с высоты</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/1.jpg" alt="Тропа между древними каменными стенами" />
-                    <figcaption>Тропа между древними стенами</figcaption>
+                    <img src="images/samshvilde/1.jpg" alt="Тропа между древними каменными стенами" data-i18n-alt="samshvilde.c2alt" />
+                    <figcaption data-i18n="samshvilde.c2">Тропа между древними стенами</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/2.jpg" alt="Каменный храм на территории Самшвилде" />
-                    <figcaption>Каменный храм на территории Самшвилде</figcaption>
+                    <img src="images/samshvilde/2.jpg" alt="Каменный храм на территории Самшвилде" data-i18n-alt="samshvilde.c3alt" />
+                    <figcaption data-i18n="samshvilde.c3">Каменный храм на территории Самшвилде</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/3.jpg" alt="Резная каменная стела с древней надписью" />
-                    <figcaption>Резная стела с древней надписью</figcaption>
+                    <img src="images/samshvilde/3.jpg" alt="Резная каменная стела с древней надписью" data-i18n-alt="samshvilde.c4alt" />
+                    <figcaption data-i18n="samshvilde.c4">Резная стела с древней надписью</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/4.jpg" alt="Каменная часовня с традиционными лентами" />
-                    <figcaption>Часовня с традиционными лентами</figcaption>
+                    <img src="images/samshvilde/4.jpg" alt="Каменная часовня с традиционными лентами" data-i18n-alt="samshvilde.c5alt" />
+                    <figcaption data-i18n="samshvilde.c5">Часовня с традиционными лентами</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/4-1.jpg" alt="Иконы на каменной стене древней часовни" />
-                    <figcaption>Иконы на каменной стене</figcaption>
+                    <img src="images/samshvilde/4-1.jpg" alt="Иконы на каменной стене древней часовни" data-i18n-alt="samshvilde.c6alt" />
+                    <figcaption data-i18n="samshvilde.c6">Иконы на каменной стене</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/5.jpg" alt="Прогулка к руинам крепости Самшвилде" />
-                    <figcaption>Прогулка к руинам крепости</figcaption>
+                    <img src="images/samshvilde/5.jpg" alt="Прогулка к руинам крепости Самшвилде" data-i18n-alt="samshvilde.c7alt" />
+                    <figcaption data-i18n="samshvilde.c7">Прогулка к руинам крепости</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/6.jpg" alt="Отдых на краю каньона с панорамой долины" />
-                    <figcaption>Отдых на краю каньона</figcaption>
+                    <img src="images/samshvilde/6.jpg" alt="Отдых на краю каньона с панорамой долины" data-i18n-alt="samshvilde.c8alt" />
+                    <figcaption data-i18n="samshvilde.c8">Отдых на краю каньона</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/7.jpg" alt="Древний каменный памятник и место для отдыха" />
-                    <figcaption>Древний памятник и место для отдыха</figcaption>
+                    <img src="images/samshvilde/7.jpg" alt="Древний каменный памятник и место для отдыха" data-i18n-alt="samshvilde.c9alt" />
+                    <figcaption data-i18n="samshvilde.c9">Древний памятник и место для отдыха</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/8.jpg" alt="Пикник на траве с видом на каньон" />
-                    <figcaption>Пикник с видом на каньон</figcaption>
+                    <img src="images/samshvilde/8.jpg" alt="Пикник на траве с видом на каньон" data-i18n-alt="samshvilde.c10alt" />
+                    <figcaption data-i18n="samshvilde.c10">Пикник с видом на каньон</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/9-1.jpg" alt="Смотровая площадка над каньоном" />
-                    <figcaption>Смотровая над каньоном</figcaption>
+                    <img src="images/samshvilde/9-1.jpg" alt="Смотровая площадка над каньоном" data-i18n-alt="samshvilde.c11alt" />
+                    <figcaption data-i18n="samshvilde.c11">Смотровая над каньоном</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/9-2.jpg" alt="Остатки древних крепостных стен" />
-                    <figcaption>Остатки древних крепостных стен</figcaption>
+                    <img src="images/samshvilde/9-2.jpg" alt="Остатки древних крепостных стен" data-i18n-alt="samshvilde.c12alt" />
+                    <figcaption data-i18n="samshvilde.c12">Остатки древних крепостных стен</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/10.jpg" alt="Крепостная стена и башня Самшвилде" />
-                    <figcaption>Крепостная стена и башня</figcaption>
+                    <img src="images/samshvilde/10.jpg" alt="Крепостная стена и башня Самшвилде" data-i18n-alt="samshvilde.c13alt" />
+                    <figcaption data-i18n="samshvilde.c13">Крепостная стена и башня</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/11.jpg" alt="Резные камни древней застройки" />
-                    <figcaption>Резные камни древней застройки</figcaption>
+                    <img src="images/samshvilde/11.jpg" alt="Резные камни древней застройки" data-i18n-alt="samshvilde.c14alt" />
+                    <figcaption data-i18n="samshvilde.c14">Резные камни древней застройки</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/12.jpg" alt="Мыс между каньонами — пастбище у руин" />
-                    <figcaption>Мыс между каньонами — пастбище у руин</figcaption>
+                    <img src="images/samshvilde/12.jpg" alt="Мыс между каньонами — пастбище у руин" data-i18n-alt="samshvilde.c15alt" />
+                    <figcaption data-i18n="samshvilde.c15">Мыс между каньонами — пастбище у руин</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/13.jpg" alt="Руины Самшвилдского Сиона" />
-                    <figcaption>Руины Самшвилдского Сиона</figcaption>
+                    <img src="images/samshvilde/13.jpg" alt="Руины Самшвилдского Сиона" data-i18n-alt="samshvilde.c16alt" />
+                    <figcaption data-i18n="samshvilde.c16">Руины Самшвилдского Сиона</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/14.jpg" alt="Внутри древнего каменного храма" />
-                    <figcaption>Внутри древнего каменного храма</figcaption>
+                    <img src="images/samshvilde/14.jpg" alt="Внутри древнего каменного храма" data-i18n-alt="samshvilde.c17alt" />
+                    <figcaption data-i18n="samshvilde.c17">Внутри древнего каменного храма</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/samshvilde/15.jpg" alt="Руины храма без крыши — трава и арочные проёмы" />
-                    <figcaption>Храм без крыши — время и природа</figcaption>
+                    <img src="images/samshvilde/15.jpg" alt="Руины храма без крыши — трава и арочные проёмы" data-i18n-alt="samshvilde.c18alt" />
+                    <figcaption data-i18n="samshvilde.c18">Храм без крыши — время и природа</figcaption>
                   </figure>
                 </div>
-                <button type="button" class="carousel-next" aria-label="Следующее фото">›</button>
+                <button type="button" class="carousel-next" aria-label="Следующее фото" data-i18n-aria="carousel.next">›</button>
               </div>
               <div class="tour-main-text">
                 <div class="card-header">
-                  <h3>
+                  <h3 data-i18n="samshvilde.title">
                     Древний Самшвилде между каньонами: лёгкий хайкинг и тысячелетняя история
                   </h3>
-                  <p class="card-subtitle">Активный день из Тбилиси</p>
+                  <p class="card-subtitle" data-i18n="samshvilde.subtitle">Активный день из Тбилиси</p>
                 </div>
-                <p class="card-lead">
+                <p class="card-lead" data-i18n="samshvilde.lead">
                   Выезд на природу и неспешная прогулка по одному из древнейших городов Грузии — на узком мысе между двумя каньонами. История дохристианской эпохи, руины крепости и храмов, смотровые над реками Храми и Чивчави и пикник с видом
                 </p>
                 <div class="tour-booking">
-                  <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button">Заказать приключение</a>
+                  <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button" data-i18n="samshvilde.cta">Заказать приключение</a>
                 </div>
               </div>
             </div>
             <details class="tour-details">
-              <summary>Подробнее о маршруте и деталях</summary>
+              <summary data-i18n="samshvilde.more">Подробнее о маршруте и деталях</summary>
               <div class="card-columns">
                 <div>
-                  <h4>Идея дня</h4>
+                  <h4 data-i18n="samshvilde.idea">Идея дня</h4>
                   <ul>
-                    <li>Погулять по месту, где древний город «вписан» в каньоны</li>
-                    <li>Почувствовать слой истории дохристианской Грузии</li>
-                    <li>Увидеть руины средневековых храмов и укреплений</li>
-                    <li>Провести день на свежем воздухе — лёгко, красиво и по-настоящему атмосферно</li>
+                    <li data-i18n="samshvilde.idea1">Погулять по месту, где древний город «вписан» в каньоны</li>
+                    <li data-i18n="samshvilde.idea2">Почувствовать слой истории дохристианской Грузии</li>
+                    <li data-i18n="samshvilde.idea3">Увидеть руины средневековых храмов и укреплений</li>
+                    <li data-i18n="samshvilde.idea4">Провести день на свежем воздухе — лёгко, красиво и по-настоящему атмосферно</li>
                   </ul>
                 </div>
                 <div>
-                  <h4>На прогулке по Самшвилде</h4>
+                  <h4 data-i18n="samshvilde.walk">На прогулке по Самшвилде</h4>
                   <ul>
-                    <li>Остатки древних крепостных стен</li>
-                    <li>Руины жилых кварталов</li>
-                    <li>Старинные храмы</li>
-                    <li>Самшвилдский Сион</li>
-                    <li>Смотровые над каньонами рек Храми и Чивчави</li>
+                    <li data-i18n="samshvilde.walk1">Остатки древних крепостных стен</li>
+                    <li data-i18n="samshvilde.walk2">Руины жилых кварталов</li>
+                    <li data-i18n="samshvilde.walk3">Старинные храмы</li>
+                    <li data-i18n="samshvilde.walk4">Самшвилдский Сион</li>
+                    <li data-i18n="samshvilde.walk5">Смотровые над каньонами рек Храми и Чивчави</li>
                   </ul>
                 </div>
               </div>
               <div class="text-block">
-                <h4>Как проходит маршрут</h4>
-                <p>
+                <h4 data-i18n="samshvilde.how">Как проходит маршрут</h4>
+                <p data-i18n="samshvilde.how1">
                   Из Тбилиси направляемся к древнему Самшвилде. По дороге можно зайти в Асурети — бывшую немецкую колонию Элизабетталь: камень XIX века, винные погреба и настроение «старой Европы» без суеты.
                 </p>
-                <p>
+                <p data-i18n="samshvilde.how2">
                   Дальше — нетяжёлый хайкинг по территории города, основанного ещё в дохристианскую эпоху. Самшвилде стоял на узком мысе между двумя каньонами и был важным торговым и оборонительным узлом. Я расскажу, как устроен был город в разные времена, почему его считали почти неприступным и как здесь переплелись языческое прошлое и христианская история Грузии.
                 </p>
-                <p>
+                <p data-i18n="samshvilde.how3">
                   В середине дня остановимся на короткий пикник: передохнуть, перекусить и просто посмотреть на пейзаж.
                 </p>
-                <p>
+                <p data-i18n="samshvilde.how4">
                   На обратном пути — Алгетское водохранилище: виды, вода и проезд по дамбе.
                 </p>
               </div>
               <div class="info-grid">
                 <div>
-                  <h4>Кому подойдёт</h4>
-                  <p>
+                  <h4 data-i18n="samshvilde.who">Кому подойдёт</h4>
+                  <p data-i18n="samshvilde.whoText">
                     Тем, кто хочет совместить лёгкую активность, панорамы и живую историю без «музейной» скуки — один день вне Тбилиси с характером.
                   </p>
                 </div>
                 <div>
-                  <h4>Организационные детали</h4>
-                  <p>
+                  <h4 data-i18n="samshvilde.org">Организационные детали</h4>
+                  <p data-i18n="samshvilde.orgText" data-i18n-html>
                     Продолжительность: 7–8 ч<br>
                     До локаций на автомобиле; пешая часть около 3–4 ч<br>
                     1–4 человека<br>
@@ -352,8 +365,8 @@
                   </p>
                 </div>
                 <div>
-                  <h4>Стоимость</h4>
-                  <p>140 евро или 450 лари</p>
+                  <h4 data-i18n="samshvilde.price">Стоимость</h4>
+                  <p data-i18n="samshvilde.priceText">140 евро или 450 лари</p>
                 </div>
               </div>
             </details>
@@ -362,116 +375,116 @@
           <article class="card">
             <div class="tour-main tour-main--portrait">
               <div class="tour-cover-carousel carousel-3-4">
-                <button type="button" class="carousel-prev" aria-label="Предыдущее фото">‹</button>
+                <button type="button" class="carousel-prev" aria-label="Предыдущее фото" data-i18n-aria="carousel.prev">‹</button>
                 <div class="carousel-track">
                   <figure class="carousel-slide">
-                    <img src="images/brewery/tour-brewery-01.jpg" alt="Лари — ритуальный напиток из ячменного солода в высокогорной Грузии" />
-                    <figcaption>Лари — ритуальный напиток из ячменного солода в высокогорной Грузии</figcaption>
+                    <img src="images/brewery/tour-brewery-01.jpg" alt="Лари — ритуальный напиток из ячменного солода в высокогорной Грузии" data-i18n-alt="brewery.c1alt" />
+                    <figcaption data-i18n="brewery.c1">Лари — ритуальный напиток из ячменного солода в высокогорной Грузии</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/brewery/tour-brewery-03.jpg" alt="Ячменный солод — сырьё для пива" />
-                    <figcaption>Ячменный солод — сырьё для пива</figcaption>
+                    <img src="images/brewery/tour-brewery-03.jpg" alt="Ячменный солод — сырьё для пива" data-i18n-alt="brewery.c2alt" />
+                    <figcaption data-i18n="brewery.c2">Ячменный солод — сырьё для пива</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/brewery/tour-brewery-04.jpg" alt="Пиво Megobrebi Brewery в бокале" />
-                    <figcaption>Пиво Megobrebi Brewery в бокале</figcaption>
+                    <img src="images/brewery/tour-brewery-04.jpg" alt="Пиво Megobrebi Brewery в бокале" data-i18n-alt="brewery.c3alt" />
+                    <figcaption data-i18n="brewery.c3">Пиво Megobrebi Brewery в бокале</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/brewery/tour-brewery-05.jpg" alt="Крафтовое пиво Megobrebi — сорта в банках" />
-                    <figcaption>Крафтовое пиво Megobrebi — сорта в банках</figcaption>
+                    <img src="images/brewery/tour-brewery-05.jpg" alt="Крафтовое пиво Megobrebi — сорта в банках" data-i18n-alt="brewery.c4alt" />
+                    <figcaption data-i18n="brewery.c4">Крафтовое пиво Megobrebi — сорта в банках</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/brewery/tour-brewery-06.jpg" alt="Гид рассказывает об оборудовании у бродильных танков" />
-                    <figcaption>Гид рассказывает об оборудовании у бродильных танков</figcaption>
+                    <img src="images/brewery/tour-brewery-06.jpg" alt="Гид рассказывает об оборудовании у бродильных танков" data-i18n-alt="brewery.c5alt" />
+                    <figcaption data-i18n="brewery.c5">Гид рассказывает об оборудовании у бродильных танков</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/brewery/tour-brewery-07.jpg" alt="Квеври для ферментации на пивоварне" />
-                    <figcaption>Квеври для ферментации на пивоварне</figcaption>
+                    <img src="images/brewery/tour-brewery-07.jpg" alt="Квеври для ферментации на пивоварне" data-i18n-alt="brewery.c6alt" />
+                    <figcaption data-i18n="brewery.c6">Квеври для ферментации на пивоварне</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/brewery/tour-brewery-08.jpg" alt="Группа с пивом на экскурсии по пивоварне" />
-                    <figcaption>Группа с пивом на экскурсии по пивоварне</figcaption>
+                    <img src="images/brewery/tour-brewery-08.jpg" alt="Группа с пивом на экскурсии по пивоварне" data-i18n-alt="brewery.c7alt" />
+                    <figcaption data-i18n="brewery.c7">Группа с пивом на экскурсии по пивоварне</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/brewery/tour-brewery-09.jpg" alt="Оценка аромата хмеля на пивоварне" />
-                    <figcaption>Оценка аромата хмеля на пивоварне</figcaption>
+                    <img src="images/brewery/tour-brewery-09.jpg" alt="Оценка аромата хмеля на пивоварне" data-i18n-alt="brewery.c8alt" />
+                    <figcaption data-i18n="brewery.c8">Оценка аромата хмеля на пивоварне</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/brewery/tour-brewery-02.jpg" alt="Цех пивоварни — бродильные танки и оборудование" />
-                    <figcaption>Цех пивоварни — бродильные танки и оборудование</figcaption>
+                    <img src="images/brewery/tour-brewery-02.jpg" alt="Цех пивоварни — бродильные танки и оборудование" data-i18n-alt="brewery.c9alt" />
+                    <figcaption data-i18n="brewery.c9">Цех пивоварни — бродильные танки и оборудование</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/brewery/tour-brewery-10.jpg" alt="Отдых на территории пивоварни" />
-                    <figcaption>Отдых на территории пивоварни</figcaption>
+                    <img src="images/brewery/tour-brewery-10.jpg" alt="Отдых на территории пивоварни" data-i18n-alt="brewery.c10alt" />
+                    <figcaption data-i18n="brewery.c10">Отдых на территории пивоварни</figcaption>
                   </figure>
                 </div>
-                <button type="button" class="carousel-next" aria-label="Следующее фото">›</button>
+                <button type="button" class="carousel-next" aria-label="Следующее фото" data-i18n-aria="carousel.next">›</button>
               </div>
               <div class="tour-main-text">
                 <div class="card-header">
-                  <h3>
+                  <h3 data-i18n="brewery.title">
                     Пиво как искусство: экскурсия на крафтовую пивоварню с
                     дегустацией
                   </h3>
-                  <p class="card-subtitle">Пивоварня</p>
+                  <p class="card-subtitle" data-i18n="brewery.subtitle">Пивоварня</p>
                 </div>
-                <p class="card-lead">
+                <p class="card-lead" data-i18n="brewery.lead">
                   До переезда в Грузию я работала 11 лет на крупном пивоваренном
                   производстве инженером-микробиологом, благодаря чему изучила
                   процессы и оборудование пивоварения изнутри. Расскажу о пиве с разных ракурсов, традициях, технологии. Попробуем неповторимое пиво, услышим жизненные истории пивовара и посетим бункер.
                 </p>
-                <p>
+                <p data-i18n="brewery.p2">
                   Пивоварня работает с малыми партиями и экспериментирует со вкусами, поэтому в ассортименте — до 90 авторских сортов, многие из которых невозможно попробовать больше нигде.
                 </p>
                 <div class="tour-booking">
-                  <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button">Заказать впечатление</a>
+                  <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button" data-i18n="brewery.cta">Заказать впечатление</a>
                 </div>
               </div>
             </div>
             <details class="tour-details">
-              <summary>Подробнее о маршруте и деталях</summary>
+              <summary data-i18n="brewery.more">Подробнее о маршруте и деталях</summary>
               <div class="card-columns">
                 <div>
-                  <h4>Вы увидите</h4>
+                  <h4 data-i18n="brewery.see">Вы увидите</h4>
                   <ul>
-                    <li>Полный цикл производства пива.</li>
-                    <li>Разберетесь в сырье, материалах и их особенностях.</li>
-                    <li>Оборудование — от дробилки до линии розлива.</li>
-                    <li>Истории от пивовара и разрушение мифов.</li>
-                    <li>Секреты крафтового пивоварения в Грузии.</li>
+                    <li data-i18n="brewery.see1">Полный цикл производства пива.</li>
+                    <li data-i18n="brewery.see2">Разберетесь в сырье, материалах и их особенностях.</li>
+                    <li data-i18n="brewery.see3">Оборудование — от дробилки до линии розлива.</li>
+                    <li data-i18n="brewery.see4">Истории от пивовара и разрушение мифов.</li>
+                    <li data-i18n="brewery.see5">Секреты крафтового пивоварения в Грузии.</li>
                   </ul>
                 </div>
                 <div>
-                  <h4>Вы узнаете</h4>
+                  <h4 data-i18n="brewery.learn">Вы узнаете</h4>
                   <ul>
-                    <li>Как варится крафтовое пиво — от зерна до бокала.</li>
-                    <li>Чем отличается крафт от масс-маркета.</li>
-                    <li>Историю пивоваренных традиций в Грузии.</li>
-                    <li>Как влияют ингредиенты на вкус и аромат.</li>
-                    <li>
+                    <li data-i18n="brewery.learn1">Как варится крафтовое пиво — от зерна до бокала.</li>
+                    <li data-i18n="brewery.learn2">Чем отличается крафт от масс-маркета.</li>
+                    <li data-i18n="brewery.learn3">Историю пивоваренных традиций в Грузии.</li>
+                    <li data-i18n="brewery.learn4">Как влияют ингредиенты на вкус и аромат.</li>
+                    <li data-i18n="brewery.learn5">
                       Как проходит брожение и зачем нужны бродильные танки.
                     </li>
                   </ul>
                 </div>
                 <div>
-                  <h4>Дегустация</h4>
+                  <h4 data-i18n="brewery.taste">Дегустация</h4>
                   <ul>
-                    <li>Пиво прямо из бродильного танка.</li>
-                    <li>3–4 сорта пива и 4–5 видов наливки.</li>
-                    <li>Легкие закуски включены.</li>
+                    <li data-i18n="brewery.taste1">Пиво прямо из бродильного танка.</li>
+                    <li data-i18n="brewery.taste2">3–4 сорта пива и 4–5 видов наливки.</li>
+                    <li data-i18n="brewery.taste3">Легкие закуски включены.</li>
                   </ul>
                 </div>
               </div>
               <div class="info-grid">
                 <div>
-                  <h4>Уникальность</h4>
-                  <p>
+                  <h4 data-i18n="brewery.unique">Уникальность</h4>
+                  <p data-i18n="brewery.uniqueText">
                     Подойдёт тем, кто любит крафтовое пиво и гастрономические впечатления, ищет нетуристические форматы и хочет изнутри понять, как рождается вкус пива — в живом общении с профессиональными пивоварами.
                   </p>
                 </div>
                 <div>
-                  <h4>Организационные моменты</h4>
-                  <p>
+                  <h4 data-i18n="brewery.org">Организационные моменты</h4>
+                  <p data-i18n="brewery.orgText" data-i18n-html>
                     Экскурсия 18+<br>
                     Продолжительность: 2,5 часа.<br>
                     До пивоварни вы добираетесь самостоятельно (около 30 минут от центра).<br>
@@ -480,8 +493,8 @@
                   </p>
                 </div>
                 <div>
-                  <h4>Стоимость</h4>
-                  <p>
+                  <h4 data-i18n="brewery.price">Стоимость</h4>
+                  <p data-i18n="brewery.priceText" data-i18n-html>
                     120 ₾ или 45 $/чел<br>
                     Минимум 3 человека.<br>
                     Группам от 5 человек — скидка 10%
@@ -494,117 +507,117 @@
           <article class="card">
             <div class="tour-main tour-main--portrait">
               <div class="tour-cover-carousel carousel-3-4">
-                <button type="button" class="carousel-prev" aria-label="Предыдущее фото">‹</button>
+                <button type="button" class="carousel-prev" aria-label="Предыдущее фото" data-i18n-aria="carousel.prev">‹</button>
                 <div class="carousel-track">
                   <figure class="carousel-slide">
-                    <img src="images/coffee/tour-coffee-01.png" alt="Профессиональная дегустация кофе — Chemex, чашки и зёрна на столе" />
-                    <figcaption>Дегустация в формате cupping</figcaption>
+                    <img src="images/coffee/tour-coffee-01.png" alt="Профессиональная дегустация кофе — Chemex, чашки и зёрна на столе" data-i18n-alt="coffee.c1alt" />
+                    <figcaption data-i18n="coffee.c1">Дегустация в формате cupping</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/coffee/tour-coffee-02.png" alt="Упаковка зерна спешалти и чашка свежесваренного кофе" />
-                    <figcaption>Зёрна и чашка — знакомство с сортом</figcaption>
+                    <img src="images/coffee/tour-coffee-02.png" alt="Упаковка зерна спешалти и чашка свежесваренного кофе" data-i18n-alt="coffee.c2alt" />
+                    <figcaption data-i18n="coffee.c2">Зёрна и чашка — знакомство с сортом</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/coffee/tour-coffee-03.png" alt="Участница дегустации с бокалом кофе" />
-                    <figcaption>Камерная атмосфера</figcaption>
+                    <img src="images/coffee/tour-coffee-03.png" alt="Участница дегустации с бокалом кофе" data-i18n-alt="coffee.c3alt" />
+                    <figcaption data-i18n="coffee.c3">Камерная атмосфера</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/coffee/tour-coffee-04.png" alt="Группа на дегустации спешалти-кофе в уютной кофейне" />
-                    <figcaption>Общение и дегустация</figcaption>
+                    <img src="images/coffee/tour-coffee-04.png" alt="Группа на дегустации спешалти-кофе в уютной кофейне" data-i18n-alt="coffee.c4alt" />
+                    <figcaption data-i18n="coffee.c4">Общение и дегустация</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/coffee/tour-coffee-05.png" alt="Участник дегустации пробует аромат и вкус кофе" />
-                    <figcaption>Профессиональный подход к чашке</figcaption>
+                    <img src="images/coffee/tour-coffee-05.png" alt="Участник дегустации пробует аромат и вкус кофе" data-i18n-alt="coffee.c5alt" />
+                    <figcaption data-i18n="coffee.c5">Профессиональный подход к чашке</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/coffee/tour-coffee-06.png" alt="Показ заваривания кофе в дриппере за стойкой кофейни" />
-                    <figcaption>Разбор заваривания и оборудования</figcaption>
+                    <img src="images/coffee/tour-coffee-06.png" alt="Показ заваривания кофе в дриппере за стойкой кофейни" data-i18n-alt="coffee.c6alt" />
+                    <figcaption data-i18n="coffee.c6">Разбор заваривания и оборудования</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/coffee/tour-coffee-07.png" alt="Эспрессо-машина — экстракция в чашки на весах" />
-                    <figcaption>Точная экстракция эспрессо</figcaption>
+                    <img src="images/coffee/tour-coffee-07.png" alt="Эспрессо-машина — экстракция в чашки на весах" data-i18n-alt="coffee.c7alt" />
+                    <figcaption data-i18n="coffee.c7">Точная экстракция эспрессо</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/coffee/tour-coffee-08.png" alt="Разлив кофе из сервера в дегустационные чашки" />
-                    <figcaption>От заваривания до дегустации</figcaption>
+                    <img src="images/coffee/tour-coffee-08.png" alt="Разлив кофе из сервера в дегустационные чашки" data-i18n-alt="coffee.c8alt" />
+                    <figcaption data-i18n="coffee.c8">От заваривания до дегустации</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/coffee/tour-coffee-09.png" alt="Заваривание pour-over: чайник и дриппер V60" />
-                    <figcaption>Pour-over вручную</figcaption>
+                    <img src="images/coffee/tour-coffee-09.png" alt="Заваривание pour-over: чайник и дриппер V60" data-i18n-alt="coffee.c9alt" />
+                    <figcaption data-i18n="coffee.c9">Pour-over вручную</figcaption>
                   </figure>
                   <figure class="carousel-slide">
-                    <img src="images/coffee/tour-coffee-10.png" alt="Обжаренные зёрна в профессиональном каппинг-трее" />
-                    <figcaption>Зёрна перед чашкой</figcaption>
+                    <img src="images/coffee/tour-coffee-10.png" alt="Обжаренные зёрна в профессиональном каппинг-трее" data-i18n-alt="coffee.c10alt" />
+                    <figcaption data-i18n="coffee.c10">Зёрна перед чашкой</figcaption>
                   </figure>
                 </div>
-                <button type="button" class="carousel-next" aria-label="Следующее фото">›</button>
+                <button type="button" class="carousel-next" aria-label="Следующее фото" data-i18n-aria="carousel.next">›</button>
               </div>
               <div class="tour-main-text">
                 <div class="card-header">
-                  <h3>
+                  <h3 data-i18n="coffee.title">
                     Дегустация спешалти-кофе в Старом городе
                   </h3>
-                  <p class="card-subtitle">Кофейня в историческом центре</p>
+                  <p class="card-subtitle" data-i18n="coffee.subtitle">Кофейня в историческом центре</p>
                 </div>
-                <p class="card-lead">
+                <p class="card-lead" data-i18n="coffee.lead">
                   Выпить чашечку хорошего кофе в уютной кофейне, познакомиться с обжарщиками, которые живут своим делом, и открыть для себя мир спешалти-кофе. В небольшой компании вы узнаете, как формируется вкус кофе, и попробуете профессиональную дегустацию.
                 </p>
                 <div class="tour-booking">
-                  <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button">Заказать впечатление</a>
+                  <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button" data-i18n="coffee.cta">Заказать впечатление</a>
                 </div>
               </div>
             </div>
             <details class="tour-details">
-              <summary>Подробнее о формате и деталях</summary>
+              <summary data-i18n="coffee.more">Подробнее о формате и деталях</summary>
               <div class="card-columns">
                 <div>
-                  <h4>Темы встречи</h4>
+                  <h4 data-i18n="coffee.topics">Темы встречи</h4>
                   <ul>
-                    <li>В маленькой кофейне в Старом городе мы проведём камерную дегустацию спешалти-кофе.</li>
-                    <li>Это возможность попробовать несколько сортов кофе так, как это делают обжарщики и бариста, и научиться различать вкусы, ароматы и характер разных зёрен.</li>
-                    <li>В уютной обстановке кофейни вы познакомитесь с миром спешалти-кофе и узнаете, почему один кофе может напоминать ягоды или шоколад, а другой — цитрусы или цветы.</li>
+                    <li data-i18n="coffee.topics1">В маленькой кофейне в Старом городе мы проведём камерную дегустацию спешалти-кофе.</li>
+                    <li data-i18n="coffee.topics2">Это возможность попробовать несколько сортов кофе так, как это делают обжарщики и бариста, и научиться различать вкусы, ароматы и характер разных зёрен.</li>
+                    <li data-i18n="coffee.topics3">В уютной обстановке кофейни вы познакомитесь с миром спешалти-кофе и узнаете, почему один кофе может напоминать ягоды или шоколад, а другой — цитрусы или цветы.</li>
                   </ul>
                 </div>
                 <div>
-                  <h4>Что вас ждёт</h4>
+                  <h4 data-i18n="coffee.expect">Что вас ждёт</h4>
                   <ul>
-                    <li>Дегустация нескольких сортов спешалти-кофе из разных стран</li>
-                    <li>Знакомство с профессиональным методом дегустации</li>
-                    <li>Разговор о происхождении кофе, обработке и обжарке</li>
-                    <li>Обучение тому, как различать вкусовые ноты</li>
-                    <li>Дружеская атмосфера небольшой кофейни и общение с людьми, которые любят кофе</li>
+                    <li data-i18n="coffee.expect1">Дегустация нескольких сортов спешалти-кофе из разных стран</li>
+                    <li data-i18n="coffee.expect2">Знакомство с профессиональным методом дегустации</li>
+                    <li data-i18n="coffee.expect3">Разговор о происхождении кофе, обработке и обжарке</li>
+                    <li data-i18n="coffee.expect4">Обучение тому, как различать вкусовые ноты</li>
+                    <li data-i18n="coffee.expect5">Дружеская атмосфера небольшой кофейни и общение с людьми, которые любят кофе</li>
                   </ul>
                 </div>
                 <div>
-                  <h4>Вы узнаете</h4>
+                  <h4 data-i18n="coffee.learn">Вы узнаете</h4>
                   <ul>
-                    <li>Чем спешалти-кофе отличается от обычного</li>
-                    <li>Как формируется вкус кофе</li>
-                    <li>Почему один и тот же сорт может звучать по-разному</li>
-                    <li>Как научиться чувствовать вкусовые ноты</li>
+                    <li data-i18n="coffee.learn1">Чем спешалти-кофе отличается от обычного</li>
+                    <li data-i18n="coffee.learn2">Как формируется вкус кофе</li>
+                    <li data-i18n="coffee.learn3">Почему один и тот же сорт может звучать по-разному</li>
+                    <li data-i18n="coffee.learn4">Как научиться чувствовать вкусовые ноты</li>
                   </ul>
                 </div>
               </div>
               <div class="info-grid">
                 <div>
-                  <h4>Уникальность</h4>
+                  <h4 data-i18n="coffee.unique">Уникальность</h4>
                   <ul>
-                    <li>Тем, кто хочет глубже понять кофе через живой разговор и практику</li>
-                    <li>Любителям спешалти и тем, кто только открывает для себя этот формат — в камерной группе и гостеприимной атмосфере</li>
-                    <li>Удобное расположение рядом с достопримечательностями</li>
+                    <li data-i18n="coffee.unique1">Тем, кто хочет глубже понять кофе через живой разговор и практику</li>
+                    <li data-i18n="coffee.unique2">Любителям спешалти и тем, кто только открывает для себя этот формат — в камерной группе и гостеприимной атмосфере</li>
+                    <li data-i18n="coffee.unique3">Удобное расположение рядом с достопримечательностями</li>
                   </ul>
                 </div>
                 <div>
-                  <h4>Организационные моменты</h4>
-                  <p>
+                  <h4 data-i18n="coffee.org">Организационные моменты</h4>
+                  <p data-i18n="coffee.orgText" data-i18n-html>
                     Продолжительность: 1,5 ч<br>
                     Небольшая группа — от 2 до 5 человек<br>
                     Каждую субботу в 10:00 и в 14:00
                   </p>
                 </div>
                 <div>
-                  <h4>Стоимость</h4>
-                  <p>70 ₾ или 27 $</p>
+                  <h4 data-i18n="coffee.price">Стоимость</h4>
+                  <p data-i18n="coffee.priceText">70 ₾ или 27 $</p>
                 </div>
               </div>
             </details>
@@ -612,35 +625,35 @@
 
           <div class="card card-custom-route">
             <div class="card-header">
-              <h3>Разработка маршрута по вашему запросу</h3>
+              <h3 data-i18n="custom.title">Разработка маршрута по вашему запросу</h3>
             </div>
-            <p class="card-custom-route-text">
+            <p class="card-custom-route-text" data-i18n="custom.text">
               Соберу день под ваши интересы и ритм — без шаблонов. Расскажите, чего хотите увидеть и почувствовать, и я предложу маршрут с живой логикой и вниманием к деталям.
             </p>
-            <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button">Обсудить маршрут</a>
+            <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer" class="booking-button" data-i18n="custom.cta">Обсудить маршрут</a>
           </div>
         </div>
       </section>
 
       <section id="unique" class="section">
         <div class="container">
-          <h2>Уникальность</h2>
+          <h2 data-i18n="unique.title">Уникальность</h2>
           <div class="text-block">
-            <p>
+            <p data-i18n="unique.p1">
               Что отличает мои экскурсии? Я стараюсь сделать их не только
               информативными, но и личными, добавляя элементы нестандартного
               подхода, а также с особым вниманием к гостям. Каждая экскурсия для
               меня – это не просто работа, а возможность поделиться своей
               любовью к этому месту, его истории и культуре.
             </p>
-            <p>
+            <p data-i18n="unique.p2">
               Я живу в Тбилиси и знаю его изнутри: не только историю, но и ритм,
               характер, контрасты. Архитектура, искусство, ландшафт и человеческие
               истории для меня важнее сухих дат. Я умею соединять эпохи,
               объяснять сложное простым языком и создавать ощущение, будто вы
               приехали в гости к хорошему знакомому.
             </p>
-            <p>
+            <p data-i18n="unique.p3">
               Благодаря инженерному образованию и чуткому подходу мои маршруты
               продуманные, насыщенные, с вниманием к деталям, но не перегруженные.
             </p>
@@ -650,40 +663,40 @@
 
       <section id="reviews" class="section section-alt">
         <div class="container">
-          <h2>Отзывы</h2>
+          <h2 data-i18n="reviews.title">Отзывы</h2>
           <div class="reviews-carousel">
-          <button type="button" class="reviews-carousel-prev" aria-label="Предыдущие отзывы">‹</button>
+          <button type="button" class="reviews-carousel-prev" aria-label="Предыдущие отзывы" data-i18n-aria="reviews.prev">‹</button>
           <div class="reviews-carousel-track">
             <blockquote class="review-card">
-              <p class="review-text">Огромное спасибо за прекрасную поездку! Невероятной красоты монастырь Давида. На мой взгляд, одна из самых недооцененных достопримечательностей Грузии. Завораживающие виды Гареджийской пустыни, прекрасный пикник с видом на марсианские пейзажи. И очень душевная атмосфера поездки.</p>
-              <footer class="review-author">— Ева, апрель 2025 · <a href="https://experience.tripster.ru/experience/73449/" target="_blank" rel="noreferrer">Отзыв с Tripster</a></footer>
+              <p class="review-text" data-i18n="reviews.r1">Огромное спасибо за прекрасную поездку! Невероятной красоты монастырь Давида. На мой взгляд, одна из самых недооцененных достопримечательностей Грузии. Завораживающие виды Гареджийской пустыни, прекрасный пикник с видом на марсианские пейзажи. И очень душевная атмосфера поездки.</p>
+              <footer class="review-author"><span data-i18n="reviews.a1">— Ева, апрель 2025 · </span><a href="https://experience.tripster.ru/experience/73449/" target="_blank" rel="noreferrer" data-i18n="reviews.tripster">Отзыв с Tripster</a></footer>
             </blockquote>
             <blockquote class="review-card">
-              <p class="review-text">Любовь прекрасный рассказчик и очень приятный человек! Благодаря ей ознакомились с древней грузинской культурой, поездили по храмам разных периодов и даже увидели раскопки! Экскурсовод старалась сделать все для нашего комфорта, отвечала на все вопросы, подготовила вкусный пикник, после экскурсии накидала много рекомендации мест, которые можно посетить в Тбилиси! Т.к. мы были в первый раз нам это было очень актуально :) Если хотите культурно обогатиться легко и с интересом, то советую эту экскурсию, т.к. Любовь все расскажет как ваш хороший знакомый, к которому вы приехали в гости изучать Грузию :) Благодарим за это мини-путешествие и возможность прочувствовать сердце города!</p>
-              <footer class="review-author">— Марина, август 2025 · <a href="https://experience.tripster.ru/experience/87246/" target="_blank" rel="noreferrer">Отзыв с Tripster</a></footer>
+              <p class="review-text" data-i18n="reviews.r2">Любовь прекрасный рассказчик и очень приятный человек! Благодаря ей ознакомились с древней грузинской культурой, поездили по храмам разных периодов и даже увидели раскопки! Экскурсовод старалась сделать все для нашего комфорта, отвечала на все вопросы, подготовила вкусный пикник, после экскурсии накидала много рекомендации мест, которые можно посетить в Тбилиси! Т.к. мы были в первый раз нам это было очень актуально :) Если хотите культурно обогатиться легко и с интересом, то советую эту экскурсию, т.к. Любовь все расскажет как ваш хороший знакомый, к которому вы приехали в гости изучать Грузию :) Благодарим за это мини-путешествие и возможность прочувствовать сердце города!</p>
+              <footer class="review-author"><span data-i18n="reviews.a2">— Марина, август 2025 · </span><a href="https://experience.tripster.ru/experience/87246/" target="_blank" rel="noreferrer" data-i18n="reviews.tripster">Отзыв с Tripster</a></footer>
             </blockquote>
             <blockquote class="review-card">
-              <p class="review-text">Мне очень понравилась экскурсия, узнать историю зданий мимо которых ходишь каждый день очень было интересно, вас очень приятно и интересно слушать. Отличный темп (никуда не торопились, но и подолгу не задерживались на одном месте) — обязательно буду с вами на других маршрутах 👍</p>
-              <footer class="review-author">— Анна, февраль 2025 · Обзорная по Тбилиси</footer>
+              <p class="review-text" data-i18n="reviews.r3">Мне очень понравилась экскурсия, узнать историю зданий мимо которых ходишь каждый день очень было интересно, вас очень приятно и интересно слушать. Отличный темп (никуда не торопились, но и подолгу не задерживались на одном месте) — обязательно буду с вами на других маршрутах 👍</p>
+              <footer class="review-author" data-i18n="reviews.a3">— Анна, февраль 2025 · Обзорная по Тбилиси</footer>
             </blockquote>
             <blockquote class="review-card">
-              <p class="review-text">17 сентября мы были на экскурсии в пещерный монастырь в Гареджийской пустыне. Это было восхитительно! Место настолько завораживает своей красотой, мощью, умиротворением. Любовь сделала все возможное, чтобы нам показать всю уникальность этого места. И большое спасибо за это ей!!! А «вишенкой на торте» был пикник на мраморных холмах. Любовь — вы чудесница!</p>
-              <footer class="review-author">— Татьяна, сентябрь 2025 · <a href="https://experience.tripster.ru/experience/73449/" target="_blank" rel="noreferrer">Отзыв с Tripster</a></footer>
+              <p class="review-text" data-i18n="reviews.r4">17 сентября мы были на экскурсии в пещерный монастырь в Гареджийской пустыне. Это было восхитительно! Место настолько завораживает своей красотой, мощью, умиротворением. Любовь сделала все возможное, чтобы нам показать всю уникальность этого места. И большое спасибо за это ей!!! А «вишенкой на торте» был пикник на мраморных холмах. Любовь — вы чудесница!</p>
+              <footer class="review-author"><span data-i18n="reviews.a4">— Татьяна, сентябрь 2025 · </span><a href="https://experience.tripster.ru/experience/73449/" target="_blank" rel="noreferrer" data-i18n="reviews.tripster">Отзыв с Tripster</a></footer>
             </blockquote>
             <blockquote class="review-card">
-              <p class="review-text">Мне понравился интерактив, вовлечение зрителей в экскурсию с помощью вопросов, загадок. Понравились истории про художников, интересные факты. Понравился общий вайб экскурсии.</p>
-              <footer class="review-author">— Дарья, январь 2026 · Обзорная по Тбилиси</footer>
+              <p class="review-text" data-i18n="reviews.r5">Мне понравился интерактив, вовлечение зрителей в экскурсию с помощью вопросов, загадок. Понравились истории про художников, интересные факты. Понравился общий вайб экскурсии.</p>
+              <footer class="review-author" data-i18n="reviews.a5">— Дарья, январь 2026 · Обзорная по Тбилиси</footer>
             </blockquote>
             <blockquote class="review-card">
-              <p class="review-text">Заказали индивидуальную экскурсию из Тбилиси по Мцхете и окрестностям. Маршрут очень понравился. Люба провела по всем историческим местам древней столицы Грузии Мцхете. Все было интересно очень познавательно , душевно. Изюминкой маршрута был пикник на склоне холма с видом на живописную долину рядом с рекой Арагви. Рекомендуем Любовь как профессионального гида.</p>
-              <footer class="review-author">— Ахметов, октябрь 2025 · <a href="https://experience.tripster.ru/experience/87246/" target="_blank" rel="noreferrer">Отзыв с Tripster</a></footer>
+              <p class="review-text" data-i18n="reviews.r6">Заказали индивидуальную экскурсию из Тбилиси по Мцхете и окрестностям. Маршрут очень понравился. Люба провела по всем историческим местам древней столицы Грузии Мцхете. Все было интересно очень познавательно , душевно. Изюминкой маршрута был пикник на склоне холма с видом на живописную долину рядом с рекой Арагви. Рекомендуем Любовь как профессионального гида.</p>
+              <footer class="review-author"><span data-i18n="reviews.a6">— Ахметов, октябрь 2025 · </span><a href="https://experience.tripster.ru/experience/87246/" target="_blank" rel="noreferrer" data-i18n="reviews.tripster">Отзыв с Tripster</a></footer>
             </blockquote>
             <blockquote class="review-card">
-              <p class="review-text">Давно хотели побывать в Грузии и увидеть её природную красоту. И вот наконец мечты сбылись! Величие гор и красота ландшафта завораживала и восхищала нас. Старинная архитектура монастырей окунула нас в историю. Прекрасно подобранный маршрут, комфортный автомобиль и безопасность в дороге. Особая благодарность Любе — очень хорошему и отзывчивому человеку, любящему свою работу и отдающемуся ей сполна. Благодаря ей у нас остались прекрасные впечатления об этой стране!</p>
-              <footer class="review-author">— Анастасия, август 2025 · <a href="https://experience.tripster.ru/experience/87246/" target="_blank" rel="noreferrer">Отзыв с Tripster</a></footer>
+              <p class="review-text" data-i18n="reviews.r7">Давно хотели побывать в Грузии и увидеть её природную красоту. И вот наконец мечты сбылись! Величие гор и красота ландшафта завораживала и восхищала нас. Старинная архитектура монастырей окунула нас в историю. Прекрасно подобранный маршрут, комфортный автомобиль и безопасность в дороге. Особая благодарность Любе — очень хорошему и отзывчивому человеку, любящему свою работу и отдающемуся ей сполна. Благодаря ей у нас остались прекрасные впечатления об этой стране!</p>
+              <footer class="review-author"><span data-i18n="reviews.a7">— Анастасия, август 2025 · </span><a href="https://experience.tripster.ru/experience/87246/" target="_blank" rel="noreferrer" data-i18n="reviews.tripster">Отзыв с Tripster</a></footer>
             </blockquote>
           </div>
-          <button type="button" class="reviews-carousel-next" aria-label="Следующие отзывы">›</button>
+          <button type="button" class="reviews-carousel-next" aria-label="Следующие отзывы" data-i18n-aria="reviews.next">›</button>
           </div>
         </div>
       </section>
@@ -692,9 +705,9 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <p>Тбилиси • Авторские экскурсии</p>
+          <p data-i18n="footer.tagline">Тбилиси • Авторские экскурсии</p>
           <div class="footer-contacts">
-            <a href="shop.html">Прокат</a>
+            <a href="shop.html" data-i18n="footer.rental">Прокат</a>
             <a href="https://instagram.com/soulmate_travel_georgia" target="_blank" rel="noreferrer"
               >Instagram</a
             >
@@ -705,6 +718,7 @@
         </div>
       </div>
     </footer>
+    <script src="js/i18n.js"></script>
     <script>
       document.querySelectorAll('.tour-cover-carousel').forEach(function (carousel) {
         var track = carousel.querySelector('.carousel-track');

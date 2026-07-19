@@ -3,9 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Заказ — Soulmate Travel</title>
+    <title data-i18n-title="meta.orderTitle">Заказ — Soulmate Travel</title>
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png" />
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      (function () {
+        try {
+          var l = localStorage.getItem("site-lang");
+          if (l === "en" || l === "ru") document.documentElement.lang = l;
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <header class="hero hero--compact">
@@ -13,11 +21,15 @@
         <div class="hero-top">
           <p class="eyebrow">Soulmate Travel</p>
           <div class="hero-contacts">
-            <a href="shop.html">← Магазин</a>
+            <div class="lang-switch" role="group" aria-label="Language">
+              <button type="button" class="lang-switch__btn" data-lang="ru" aria-pressed="true">RU</button>
+              <button type="button" class="lang-switch__btn" data-lang="en" aria-pressed="false">EN</button>
+            </div>
+            <a href="shop.html" data-i18n="order.back">← Магазин</a>
             <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer">Telegram</a>
           </div>
         </div>
-        <h1>Ваш заказ</h1>
+        <h1 data-i18n="order.title">Ваш заказ</h1>
       </div>
     </header>
 
@@ -27,20 +39,20 @@
           <p id="order-error" class="shop-error"></p>
 
           <div id="order-content" class="order-content card" hidden>
-            <p>Заказ <strong>#<span id="order-id"></span></strong></p>
-            <p>Статус: <strong id="order-status"></strong></p>
-            <p>Период: <span id="order-dates"></span></p>
-            <p>Контакт: <span id="order-contact"></span></p>
+            <p><span data-i18n="order.label">Заказ </span><strong>#<span id="order-id"></span></strong></p>
+            <p><span data-i18n="order.status">Статус: </span><strong id="order-status"></strong></p>
+            <p><span data-i18n="order.period">Период: </span><span id="order-dates"></span></p>
+            <p><span data-i18n="order.contact">Контакт: </span><span id="order-contact"></span></p>
 
-            <h3>Позиции</h3>
+            <h3 data-i18n="order.items">Позиции</h3>
             <ul id="order-items" class="order-items"></ul>
 
-            <p class="order-total">Итого: <strong id="order-total"></strong></p>
+            <p class="order-total"><span data-i18n="order.total">Итого: </span><strong id="order-total"></strong></p>
 
             <div class="order-payment">
-              <h3>Оплата</h3>
+              <h3 data-i18n="order.payment">Оплата</h3>
               <p id="payment-instructions"></p>
-              <a id="payment-telegram" href="#" target="_blank" rel="noreferrer" class="booking-button">Написать в Telegram</a>
+              <a id="payment-telegram" href="#" target="_blank" rel="noreferrer" class="booking-button" data-i18n="order.telegram">Написать в Telegram</a>
             </div>
           </div>
         </div>
@@ -50,15 +62,16 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <p>Тбилиси • Прокат и экскурсии</p>
+          <p data-i18n="shop.footer">Тбилиси • Прокат и экскурсии</p>
           <div class="footer-contacts">
-            <a href="shop.html">Магазин</a>
+            <a href="shop.html" data-i18n="order.footer.shop">Магазин</a>
             <a href="https://t.me/soulmate_travel_georgia" target="_blank" rel="noreferrer">Telegram</a>
           </div>
         </div>
       </div>
     </footer>
 
+    <script src="js/i18n.js"></script>
     <script src="js/config.js"></script>
     <script src="js/shop-order.js"></script>
   </body>

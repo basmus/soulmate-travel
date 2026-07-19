@@ -1,9 +1,22 @@
 const TELEGRAM_URL = "https://t.me/soulmate_travel_georgia";
 
 const KIT_PRICES = {
-  "kit-2": { name: "Комплект для 2 человек", p1: 75, p24: 65, p5: 55 },
-  "kit-4": { name: "Семейный комплект (4 человека)", p1: 115, p24: 100, p5: 90 },
+  "kit-2": { key: "js.kit2", p1: 75, p24: 65, p5: 55 },
+  "kit-4": { key: "js.kit4", p1: 115, p24: 100, p5: 90 },
 };
+
+function tt(key, vars) {
+  return window.I18N ? window.I18N.t(key, vars) : key;
+}
+
+function itemLabel(name) {
+  return window.I18N ? window.I18N.itemLabel(name) : name;
+}
+
+function kitName(choice) {
+  const kit = KIT_PRICES[choice];
+  return kit ? tt(kit.key) : choice;
+}
 
 function daysBetween(start, end) {
   const s = new Date(start);
@@ -41,8 +54,9 @@ function linesFrom(selector, qtyPrefix, days) {
     const perDay = tierPrice(p1, p24, p5, days);
     const lineTotal = perDay * days * qty;
     total += lineTotal;
+    const label = itemLabel(cb.value);
     lines.push({
-      label: qty > 1 ? `${cb.value} ×${qty}` : cb.value,
+      label: qty > 1 ? `${label} ×${qty}` : label,
       perDay,
       lineTotal,
       priced: p1 > 0 || p24 > 0 || p5 > 0,
@@ -56,12 +70,12 @@ function updateEstimate() {
   const start = document.getElementById("rent-start").value;
   const end = document.getElementById("rent-end").value;
   if (!start || !end) {
-    el.textContent = "Выберите даты — покажем ориентир по цене";
+    el.textContent = tt("js.estimateDates");
     return;
   }
   const days = daysBetween(start, end);
   if (days < 1) {
-    el.textContent = "Дата окончания должна быть не раньше даты начала";
+    el.textContent = tt("js.estimateEndBefore");
     return;
   }
 
@@ -70,11 +84,15 @@ function updateEstimate() {
     const main = linesFrom('input[name="item"]', "qty-", days);
     const addons = linesFrom('input[name="addon"]', "qty-addon-", days);
     if (!main.lines.length) {
-      el.textContent = "Отметьте палатку, спальники или коврики";
+      el.textContent = tt("js.estimatePickItems");
       return;
     }
     const total = main.total + addons.total;
-    let text = `Ориентир: ${total} ₾ за ${days} дн. (${main.lines.map((l) => l.label).join(", ")})`;
+    let text = tt("js.estimateCustom", {
+      total,
+      days,
+      items: main.lines.map((l) => l.label).join(", "),
+    });
     if (addons.lines.length) text += ` + ${addons.lines.map((l) => l.label).join(", ")}`;
     el.textContent = text;
     return;
@@ -85,7 +103,7 @@ function updateEstimate() {
   let total = perDay * days;
   const addons = linesFrom('input[name="addon"]', "qty-addon-", days);
   total += addons.total;
-  let text = `Ориентир: ${total} ₾ за ${days} дн. — ${kit.name}`;
+  let text = tt("js.estimateKit", { total, days, kit: kitName(choice) });
   if (addons.lines.length) {
     text += ` + ${addons.lines.map((l) => l.label).join(", ")}`;
   }
@@ -116,25 +134,39 @@ function buildMessage() {
     const main = linesFrom('input[name="item"]', "qty-", days);
     what = main.lines.map((l) => l.label).join(", ");
     if (addons.lines.length) what += ` + ${addons.lines.map((l) => l.label).join(", ")}`;
-    estimate = main.total + addons.total > 0 ? `${main.total + addons.total} ₾` : "уточним";
+    estimate = main.total + addons.total > 0 ? `${main.total + addons.total} ₾` : tt("js.msgClarify");
   } else {
     const kit = KIT_PRICES[choice];
     const perDay = tierPrice(kit.p1, kit.p24, kit.p5, days);
-    what = kit.name;
+    what = kitName(choice);
     if (addons.lines.length) what += ` + ${addons.lines.map((l) => l.label).join(", ")}`;
     estimate = `${perDay * days + addons.total} ₾`;
   }
 
   let text =
-    `Здравствуйте! Заявка на прокат.\n\n` +
-    `Что: ${what}\n` +
-    `Даты: ${formatDate(start)} — ${formatDate(end)} (${days} дн.)\n` +
-    `Людей: ${people}\n` +
-    `Куда: ${destination}\n` +
-    `Ориентир: ${estimate}\n` +
-    `Имя: ${name}\n` +
-    `Телефон: ${phone}`;
-  if (comment) text += `\nКомментарий: ${comment}`;
+    tt("js.msgHello") +
+    tt("js.msgWhat") +
+    what +
+    "\n" +
+    tt("js.msgDates") +
+    `${formatDate(start)} — ${formatDate(end)} (${days}` +
+    tt("js.msgDays") +
+    "\n" +
+    tt("js.msgPeople") +
+    people +
+    "\n" +
+    tt("js.msgWhere") +
+    destination +
+    "\n" +
+    tt("js.msgEstimate") +
+    estimate +
+    "\n" +
+    tt("js.msgName") +
+    name +
+    "\n" +
+    tt("js.msgPhone") +
+    phone;
+  if (comment) text += "\n" + tt("js.msgComment") + comment;
   return text;
 }
 
@@ -161,7 +193,7 @@ function init() {
     });
   });
 
-  document.querySelectorAll('#custom-items input, #kit-addons input').forEach((el) => {
+  document.querySelectorAll("#custom-items input, #kit-addons input").forEach((el) => {
     el.addEventListener("change", updateEstimate);
     el.addEventListener("input", updateEstimate);
   });
@@ -186,12 +218,12 @@ function init() {
     const startVal = start.value;
     const endVal = end.value;
     if (!startVal || !endVal || daysBetween(startVal, endVal) < 1) {
-      err.textContent = "Проверьте даты аренды.";
+      err.textContent = tt("js.errDates");
       err.hidden = false;
       return;
     }
     if (selectedChoice() === "custom" && !document.querySelector('input[name="item"]:checked')) {
-      err.textContent = "Выберите хотя бы одну позицию.";
+      err.textContent = tt("js.errItems");
       err.hidden = false;
       return;
     }
@@ -199,6 +231,8 @@ function init() {
     const url = `${TELEGRAM_URL}?text=${encodeURIComponent(buildMessage())}`;
     window.open(url, "_blank", "noopener,noreferrer");
   });
+
+  document.addEventListener("localechange", updateEstimate);
 
   syncPanels();
 }
