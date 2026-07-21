@@ -1,6 +1,6 @@
 # Прокат оборудования — Soulmate Travel
 
-Магазин аренды на сайте (`shop.html`) + Telegram-бот бронирования. Общий API и база заказов.
+Магазин аренды на сайте (`rent.html`) + Telegram-бот бронирования. Общий API и база заказов.
 
 ## Состав
 
@@ -8,7 +8,7 @@
 |-----------|----------|
 | `api/` | FastAPI — каталог, календарь, заказы |
 | `bot/` | aiogram 3 — бронирование и админ |
-| `shop.html` | Магазин на сайте |
+| `rent.html` | Магазин на сайте |
 | `shop-order.html` | Страница заказа и оплаты |
 
 ## Быстрый старт (локально)
@@ -30,7 +30,7 @@ API: http://localhost:8000/docs
 
 ### 2. Сайт
 
-Откройте `shop.html` через локальный сервер (Live Server, `python -m http.server 5500` и т.п.).
+Откройте `rent.html` через локальный сервер (Live Server, `python -m http.server 5500` и т.п.).
 
 В `js/config.js` укажите URL API:
 
@@ -87,7 +87,7 @@ docker compose up -d
 
 - API: порт 8000
 - PostgreSQL: порт 5432
-- Статика (`shop.html`, `index.html`) — GitHub Pages или nginx
+- Статика (`rent.html`, `index.html`) — GitHub Pages или nginx
 
 Обновите `js/config.js` для production:
 
@@ -97,7 +97,7 @@ apiUrl: "https://api.soulmate-travel.ge",
 
 ## Деплой
 
-1. **GitHub Pages** — `index.html`, `shop.html`, `shop-order.html`, `js/`, `styles.css`
+1. **GitHub Pages** — `index.html`, `rent.html`, `shop-order.html`, `js/`, `styles.css`
 2. **VPS** — `docker compose up` для API и бота
 3. **DNS** — поддомен API (опционально)
 4. **CORS** — добавьте домен сайта в `CORS_ORIGINS`

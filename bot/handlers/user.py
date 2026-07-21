@@ -65,7 +65,7 @@ async def cmd_start(message: Message, state: FSMContext):
     )
     await message.answer(
         "Привет! Я помогу забронировать туристическое оборудование в аренду.\n\n"
-        f"Или оформите заказ на сайте: {settings.site_url}/shop.html",
+        f"Или оформите заказ на сайте: {settings.site_url}/rent.html",
         reply_markup=kb,
     )
 
