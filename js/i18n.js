@@ -9,8 +9,8 @@
     "meta.orderTitle": "Order — Soulmate Travel",
 
     "hero.eyebrow": "Routes and trips around Georgia",
-    "hero.title": "Travel Georgia on your own",
-    "hero.lead1": "Thoughtful routes for independent travel in Tbilisi and Georgia.",
+    "hero.title": "Soulmate Travel",
+    "hero.lead1": "Thoughtful routes for travel in Tbilisi and Georgia.",
     "hero.lead2": "Ready-made guides, atmospheric places, and tourist gear rental.",
 
     "nav.about": "About me",
