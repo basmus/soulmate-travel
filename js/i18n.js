@@ -8,16 +8,20 @@
       "Tent and gear rental in Tbilisi — for Kazbegi, Svaneti and trips around Georgia. Kits or build your own.",
     "meta.orderTitle": "Order — Soulmate Travel",
 
-    "hero.eyebrow": "Routes and trips around Georgia",
+    "hero.eyebrow": "Author tours around Georgia",
     "hero.title": "Soulmate Travel",
     "hero.lead1": "Thoughtful routes for travel in Tbilisi and Georgia.",
     "hero.lead2": "Ready-made guides, atmospheric places, and tourist gear rental.",
 
     "nav.about": "About me",
+    "nav.tours": "Excursions",
+    "nav.unique": "What makes it different",
     "nav.routes": "Routes",
     "nav.adventures": "Adventures & experiences",
     "nav.rental": "Rental",
     "nav.reviews": "Reviews",
+
+    "tours.title": "Excursions",
 
     "about.title": "About me",
     "about.alt": "Photo of guide Lyubov",
