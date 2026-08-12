@@ -1,5 +1,9 @@
 const TELEGRAM_URL = "https://t.me/soulmate_travel_georgia";
 
+function whatsappUrl() {
+  return (window.SHOP_CONFIG && window.SHOP_CONFIG.whatsappUrl) || "https://wa.me/79089252980";
+}
+
 const KIT_PRICES = {
   "kit-2": { key: "js.kit2", p1: 75, p24: 65, p5: 55 },
   "kit-4": { key: "js.kit4", p1: 115, p24: 100, p5: 90 },
@@ -28,6 +32,20 @@ function tierPrice(p1, p24, p5, days) {
   if (days <= 1) return p1;
   if (days <= 4) return p24;
   return p5;
+}
+
+/** ~1 € ≈ 3 ₾ — rounded for display next to lari */
+const GEL_PER_EUR = 3;
+
+function toEur(gel) {
+  return Math.round(Number(gel) / GEL_PER_EUR) || 0;
+}
+
+function formatMoney(gel) {
+  const n = Number(gel);
+  if (!n) return "";
+  const isEn = window.I18N && window.I18N.locale === "en";
+  return isEn ? `€${toEur(n)} (${n} ₾)` : `${n} ₾`;
 }
 
 function formatDate(iso) {
@@ -90,6 +108,7 @@ function updateEstimate() {
     const total = main.total + addons.total;
     let text = tt("js.estimateCustom", {
       total,
+      eur: toEur(total),
       days,
       items: main.lines.map((l) => l.label).join(", "),
     });
@@ -103,7 +122,12 @@ function updateEstimate() {
   let total = perDay * days;
   const addons = linesFrom('input[name="addon"]', "qty-addon-", days);
   total += addons.total;
-  let text = tt("js.estimateKit", { total, days, kit: kitName(choice) });
+  let text = tt("js.estimateKit", {
+    total,
+    eur: toEur(total),
+    days,
+    kit: kitName(choice),
+  });
   if (addons.lines.length) {
     text += ` + ${addons.lines.map((l) => l.label).join(", ")}`;
   }
@@ -134,13 +158,13 @@ function buildMessage() {
     const main = linesFrom('input[name="item"]', "qty-", days);
     what = main.lines.map((l) => l.label).join(", ");
     if (addons.lines.length) what += ` + ${addons.lines.map((l) => l.label).join(", ")}`;
-    estimate = main.total + addons.total > 0 ? `${main.total + addons.total} ₾` : tt("js.msgClarify");
+    estimate = main.total + addons.total > 0 ? formatMoney(main.total + addons.total) : tt("js.msgClarify");
   } else {
     const kit = KIT_PRICES[choice];
     const perDay = tierPrice(kit.p1, kit.p24, kit.p5, days);
     what = kitName(choice);
     if (addons.lines.length) what += ` + ${addons.lines.map((l) => l.label).join(", ")}`;
-    estimate = `${perDay * days + addons.total} ₾`;
+    estimate = formatMoney(perDay * days + addons.total);
   }
 
   let text =
@@ -210,8 +234,7 @@ function init() {
     });
   });
 
-  document.getElementById("rental-request-form").addEventListener("submit", (e) => {
-    e.preventDefault();
+  function openRequest(channel) {
     const err = document.getElementById("rent-form-error");
     err.hidden = true;
 
@@ -228,9 +251,23 @@ function init() {
       return;
     }
 
-    const url = `${TELEGRAM_URL}?text=${encodeURIComponent(buildMessage())}`;
+    const text = buildMessage();
+    const url =
+      channel === "whatsapp"
+        ? `${whatsappUrl()}?text=${encodeURIComponent(text)}`
+        : `${TELEGRAM_URL}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank", "noopener,noreferrer");
+  }
+
+  document.getElementById("rental-request-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    openRequest("telegram");
   });
+
+  const waBtn = document.getElementById("rent-whatsapp");
+  if (waBtn) {
+    waBtn.addEventListener("click", () => openRequest("whatsapp"));
+  }
 
   document.addEventListener("localechange", updateEstimate);
 

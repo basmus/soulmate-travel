@@ -104,8 +104,10 @@ apiUrl: "https://api.soulmate-travel.ge",
 
 ## Сценарии
 
-**Сайт:** магазин → корзина → календарь → форма → `shop-order.html` → оплата в Telegram
+**Сайт:** каталог → форма заявки
 
-**Бот:** `/start` → оборудование → календарь → имя/телефон → ссылка на `shop-order.html`
+**Бот (advisor):** `/start` → camping trip? → dates → people → destination → hiking/car → kit + price → book
+
+**Бот (catalog):** Catalog → оборудование → календарь → имя/телефон → ссылка на `shop-order.html`
 
 Оба канала создают заказы в одной базе. Админ получает уведомление в Telegram.

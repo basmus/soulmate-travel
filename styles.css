@@ -403,6 +403,28 @@ h4 {
   align-self: flex-start;
 }
 
+.rental-submit-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.rental-submit-row .booking-button {
+  margin: 0;
+}
+
+.booking-button--outline {
+  background: transparent;
+  color: #a34d24;
+  border: 1.5px solid rgba(163, 77, 36, 0.45);
+}
+
+.booking-button--outline:hover {
+  background: rgba(163, 77, 36, 0.08);
+  color: #8f4a24;
+}
+
 .tour-main img {
   width: 100%;
   height: auto;
@@ -936,6 +958,12 @@ h4 {
   margin-bottom: 4px;
 }
 
+.price-alt {
+  color: #8a6550;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
 .rental-kits-title {
   font-size: 1.35rem;
   color: #8f4a24;
@@ -1306,8 +1334,16 @@ h4 {
 .rental-request-form .booking-button {
   border: none;
   cursor: pointer;
-  width: 100%;
   text-align: center;
+}
+
+.rental-request-form .rental-submit-row .booking-button {
+  width: auto;
+  flex: 1 1 200px;
+}
+
+.rental-request-form .booking-button--outline {
+  border: 1.5px solid rgba(163, 77, 36, 0.45);
 }
 
 @media (max-width: 640px) {

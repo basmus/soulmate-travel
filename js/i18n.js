@@ -307,40 +307,40 @@
     "shop.kit2.desc":
       "A ready set for a couple or two friends: everything for overnight stays in the mountains or by the sea. Take it if you don't want to assemble gear item by item.",
     "shop.kit2.alt": "Kit for 2 people in the mountains",
-    "shop.kit2.p1": "1 day — 75&nbsp;₾",
-    "shop.kit2.p24": "2–4 days — 65&nbsp;₾/day",
-    "shop.kit2.p5": "5+ days — 55&nbsp;₾/day",
+    "shop.kit2.p1": "1 day — €25 <span class=\"price-alt\">(75&nbsp;₾)</span>",
+    "shop.kit2.p24": "2–4 days — €22/day <span class=\"price-alt\">(65&nbsp;₾)</span>",
+    "shop.kit2.p5": "5+ days — €18/day <span class=\"price-alt\">(55&nbsp;₾)</span>",
     "shop.kit4.title": "Family kit (4 people)",
     "shop.kit4.compose": "Tent, 4 sleeping bags, 4 mats",
     "shop.kit4.desc":
       "For a family or a small group. Includes a spacious tent and sleeping spots for four — more convenient and better value than renting everything separately.",
     "shop.kit4.alt": "Family camping kit by the river",
-    "shop.kit4.p1": "1 day — 115&nbsp;₾",
-    "shop.kit4.p24": "2–4 days — 100&nbsp;₾/day",
-    "shop.kit4.p5": "5+ days — 90&nbsp;₾/day",
+    "shop.kit4.p1": "1 day — €38 <span class=\"price-alt\">(115&nbsp;₾)</span>",
+    "shop.kit4.p24": "2–4 days — €33/day <span class=\"price-alt\">(100&nbsp;₾)</span>",
+    "shop.kit4.p5": "5+ days — €30/day <span class=\"price-alt\">(90&nbsp;₾)</span>",
     "shop.book": "Book",
 
     "shop.items.title": "À la carte",
-    "shop.tent2.from": "from 25&nbsp;₾ / day",
-    "shop.tent2.p1": "1 day — 35&nbsp;₾",
-    "shop.tent2.p24": "2–4 days — 30&nbsp;₾/day",
-    "shop.tent2.p5": "5+ days — 25&nbsp;₾/day",
-    "shop.tent4.from": "from 45&nbsp;₾ / day",
-    "shop.tent4.p1": "1 day — 55&nbsp;₾",
-    "shop.tent4.p24": "2–4 days — 50&nbsp;₾/day",
-    "shop.tent4.p5": "5+ days — 45&nbsp;₾/day",
-    "shop.bag.from": "from 10&nbsp;₾ / day",
-    "shop.bag.p1": "1 day — 15&nbsp;₾",
-    "shop.bag.p24": "2–4 days — 13&nbsp;₾/day",
-    "shop.bag.p5": "5+ days — 10&nbsp;₾/day",
-    "shop.mat.from": "from 10&nbsp;₾ / day",
-    "shop.mat.p1": "1 day — 15&nbsp;₾",
-    "shop.mat.p24": "2–4 days — 13&nbsp;₾/day",
-    "shop.mat.p5": "5+ days — 10&nbsp;₾/day",
-    "shop.chair.from": "from 6&nbsp;₾ / day",
-    "shop.chair.p1": "1 day — 10&nbsp;₾",
-    "shop.chair.p24": "2–4 days — 8&nbsp;₾/day",
-    "shop.chair.p5": "5+ days — 6&nbsp;₾/day",
+    "shop.tent2.from": "from €8 <span class=\"price-alt\">(25&nbsp;₾)</span> / day",
+    "shop.tent2.p1": "1 day — €12 <span class=\"price-alt\">(35&nbsp;₾)</span>",
+    "shop.tent2.p24": "2–4 days — €10/day <span class=\"price-alt\">(30&nbsp;₾)</span>",
+    "shop.tent2.p5": "5+ days — €8/day <span class=\"price-alt\">(25&nbsp;₾)</span>",
+    "shop.tent4.from": "from €15 <span class=\"price-alt\">(45&nbsp;₾)</span> / day",
+    "shop.tent4.p1": "1 day — €18 <span class=\"price-alt\">(55&nbsp;₾)</span>",
+    "shop.tent4.p24": "2–4 days — €17/day <span class=\"price-alt\">(50&nbsp;₾)</span>",
+    "shop.tent4.p5": "5+ days — €15/day <span class=\"price-alt\">(45&nbsp;₾)</span>",
+    "shop.bag.from": "from €3 <span class=\"price-alt\">(10&nbsp;₾)</span> / day",
+    "shop.bag.p1": "1 day — €5 <span class=\"price-alt\">(15&nbsp;₾)</span>",
+    "shop.bag.p24": "2–4 days — €4/day <span class=\"price-alt\">(13&nbsp;₾)</span>",
+    "shop.bag.p5": "5+ days — €3/day <span class=\"price-alt\">(10&nbsp;₾)</span>",
+    "shop.mat.from": "from €3 <span class=\"price-alt\">(10&nbsp;₾)</span> / day",
+    "shop.mat.p1": "1 day — €5 <span class=\"price-alt\">(15&nbsp;₾)</span>",
+    "shop.mat.p24": "2–4 days — €4/day <span class=\"price-alt\">(13&nbsp;₾)</span>",
+    "shop.mat.p5": "5+ days — €3/day <span class=\"price-alt\">(10&nbsp;₾)</span>",
+    "shop.chair.from": "from €2 <span class=\"price-alt\">(6&nbsp;₾)</span> / day",
+    "shop.chair.p1": "1 day — €3 <span class=\"price-alt\">(10&nbsp;₾)</span>",
+    "shop.chair.p24": "2–4 days — €3/day <span class=\"price-alt\">(8&nbsp;₾)</span>",
+    "shop.chair.p5": "5+ days — €2/day <span class=\"price-alt\">(6&nbsp;₾)</span>",
     "shop.onRequest": "on request",
 
     "shop.tent2.name": "2-person Quechua tent",
@@ -377,7 +377,7 @@
 
     "shop.form.title": "Book",
     "shop.form.lead":
-      "Choose a kit or individual items, set the dates — the request goes to Telegram, and we'll confirm availability.",
+      "Choose a kit or individual items, set the dates — send the request via Telegram or WhatsApp, and we'll confirm availability.",
     "shop.form.kitLegend": "1. Ready kit",
     "shop.form.kitHint": "Tent + sleeping bags + mats already included",
     "shop.form.or": "or",
@@ -396,7 +396,8 @@
     "shop.form.phone": "Phone",
     "shop.form.comment": "Comment",
     "shop.form.commentPh": "Notes on tent size, pickup time…",
-    "shop.form.submit": "Send request to Telegram",
+    "shop.form.submit": "Send via Telegram",
+    "shop.form.submitWa": "Send via WhatsApp",
     "shop.form.bagShort": "Comfort sleeping bag",
     "shop.form.matShort": "Comfort mat 8 cm",
     "shop.form.table": "Folding table",
@@ -429,8 +430,8 @@
     "js.estimateDates": "Select dates — we'll show a price estimate",
     "js.estimateEndBefore": "End date must be on or after the start date",
     "js.estimatePickItems": "Select a tent, sleeping bags or mats",
-    "js.estimateCustom": "Estimate: {total} ₾ for {days} days ({items})",
-    "js.estimateKit": "Estimate: {total} ₾ for {days} days — {kit}",
+    "js.estimateCustom": "Estimate: €{eur} ({total} ₾) for {days} days ({items})",
+    "js.estimateKit": "Estimate: €{eur} ({total} ₾) for {days} days — {kit}",
     "js.kit2": "Kit for 2 people",
     "js.kit4": "Family kit (4 people)",
     "js.errDates": "Please check the rental dates.",
@@ -604,6 +605,15 @@
       var active = btn.getAttribute("data-lang") === locale;
       btn.classList.toggle("is-active", active);
       btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+
+    document.querySelectorAll("[data-i18n-lang]").forEach(function (el) {
+      el.hidden = el.getAttribute("data-i18n-lang") !== locale;
+    });
+
+    document.querySelectorAll("[data-whatsapp-link]").forEach(function (el) {
+      var cfg = window.SHOP_CONFIG || {};
+      if (cfg.whatsappUrl) el.setAttribute("href", cfg.whatsappUrl);
     });
 
     document.dispatchEvent(new CustomEvent("localechange", { detail: { locale: locale } }));
