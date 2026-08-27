@@ -347,15 +347,15 @@
     "shop.chair.p5": "5+ days — €2/day <span class=\"price-alt\">(6&nbsp;₾)</span>",
     "shop.onRequest": "on request",
 
-    "shop.tent2.name": "2-person Quechua tent",
+    "shop.tent2.name": "2-person tent",
     "shop.tent2.desc":
       "Lightweight Quechua MH100 Fresh & Black for two — for Kazbegi, Svaneti and short trips. We'll show you how to pitch it quickly if it's your first time.",
     "shop.tent2.specs": "Weight 3.8 kg · packed 58 × 18 × 18 cm",
-    "shop.tent3.name": "3-person Quechua tent",
+    "shop.tent3.name": "3-person tent",
     "shop.tent3.desc":
-      "Quechua MH100 Fresh & Black for three — easy to pitch, freestanding dome. Fresh & Black fabric keeps it cool and almost completely dark inside. We'll show you how to pitch it quickly if it's your first time.",
+      "Quechua MH100 Fresh & Black for three — easy to pitch, freestanding dome. Fresh & Black fabric keeps it cool and almost completely dark inside.",
     "shop.tent3.specs": "Weight 4.1 kg · packed 60 × 20 × 18 cm",
-    "shop.tent4.name": "4-person Quechua tent",
+    "shop.tent4.name": "4-person tent",
     "shop.tent4.desc":
       "Spacious Quechua MH100 XXL with a tall vestibule — you can stand up and leave backpacks inside. For a family or group of up to four.",
     "shop.tent4.specs": "Weight 8.8 kg · packed 70 × 30 × 28 cm",
@@ -497,9 +497,9 @@
   };
 
   var itemNamesEn = {
-    "Палатка 2-местная Quechua": "2-person Quechua tent",
-    "Палатка 3-местная Quechua": "3-person Quechua tent",
-    "Палатка 4-местная Quechua": "4-person Quechua tent",
+    "Палатка 2-местная": "2-person tent",
+    "Палатка 3-местная": "3-person tent",
+    "Палатка 4-местная": "4-person tent",
     "Спальник Comfort": "Comfort sleeping bag",
     "Матрас Comfort": "Comfort mattress",
     "Кресло складное": "Folding chair",
