@@ -325,6 +325,10 @@
     "shop.tent2.p1": "1 day — €12 <span class=\"price-alt\">(35&nbsp;₾)</span>",
     "shop.tent2.p24": "2–4 days — €10/day <span class=\"price-alt\">(30&nbsp;₾)</span>",
     "shop.tent2.p5": "5+ days — €8/day <span class=\"price-alt\">(25&nbsp;₾)</span>",
+    "shop.tent3.from": "from €12 <span class=\"price-alt\">(35&nbsp;₾)</span> / day",
+    "shop.tent3.p1": "1 day — €15 <span class=\"price-alt\">(45&nbsp;₾)</span>",
+    "shop.tent3.p24": "2–4 days — €13/day <span class=\"price-alt\">(40&nbsp;₾)</span>",
+    "shop.tent3.p5": "5+ days — €12/day <span class=\"price-alt\">(35&nbsp;₾)</span>",
     "shop.tent4.from": "from €15 <span class=\"price-alt\">(45&nbsp;₾)</span> / day",
     "shop.tent4.p1": "1 day — €18 <span class=\"price-alt\">(55&nbsp;₾)</span>",
     "shop.tent4.p24": "2–4 days — €17/day <span class=\"price-alt\">(50&nbsp;₾)</span>",
@@ -347,6 +351,10 @@
     "shop.tent2.desc":
       "Lightweight Quechua MH100 Fresh & Black for two — for Kazbegi, Svaneti and short trips. We'll show you how to pitch it quickly if it's your first time.",
     "shop.tent2.specs": "Weight 3.8 kg · packed 58 × 18 × 18 cm",
+    "shop.tent3.name": "3-person Quechua tent",
+    "shop.tent3.desc":
+      "Quechua MH100 Fresh & Black for three — easy to pitch, freestanding dome. Fresh & Black fabric keeps it cool and almost completely dark inside. We'll show you how to pitch it quickly if it's your first time.",
+    "shop.tent3.specs": "Weight 4.1 kg · packed 60 × 20 × 18 cm",
     "shop.tent4.name": "4-person Quechua tent",
     "shop.tent4.desc":
       "Spacious Quechua MH100 XXL with a tall vestibule — you can stand up and leave backpacks inside. For a family or group of up to four.",
@@ -490,6 +498,7 @@
 
   var itemNamesEn = {
     "Палатка 2-местная Quechua": "2-person Quechua tent",
+    "Палатка 3-местная Quechua": "3-person Quechua tent",
     "Палатка 4-местная Quechua": "4-person Quechua tent",
     "Спальник Comfort": "Comfort sleeping bag",
     "Матрас Comfort": "Comfort mattress",

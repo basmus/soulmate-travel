@@ -39,6 +39,17 @@ SEED_EQUIPMENT = [
         "quantity": 1,
     },
     {
+        "slug": "tent-3p",
+        "name": "Палатка 3-местная",
+        "description": "Палатка Quechua MH100 Fresh & Black на 3 человека. Легко ставится, внутри почти полная темнота и прохлада.",
+        "photo_url": "images/rent/tent-3p.png",
+        "price_1_day": 45.0,
+        "price_2_4_days": 40.0,
+        "price_5_plus_days": 35.0,
+        "price_per_day": 35.0,
+        "quantity": 1,
+    },
+    {
         "slug": "tent-4p",
         "name": "Палатка 4-местная",
         "description": "Палатка Quechua Fresh & Black на 4 человека с большим тамбуром.",
