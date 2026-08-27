@@ -355,10 +355,10 @@
     "shop.bag.desc":
       "Rectangular Comfort 10°C sleeping bag — more room than a mummy. Soft, good for warm nights in the mountains and by the sea. Every bag comes with a clean individual liner — for hygiene and your comfort.",
     "shop.bag.specs": "Bag 2.2 kg (43 × 30 × 30 cm) · liner 0.32 kg",
-    "shop.mat.name": "Comfort mat 200×70×8 cm",
+    "shop.mat.name": "Comfort mattress",
     "shop.mat.desc":
-      "Thick self-inflating Comfort mat 200 × 70 × 8 cm — soft sleep and insulation from the ground. More comfortable than a thin foam pad on rocky sites.",
-    "shop.mat.specs": "Weight 3.2 kg · rolled 70 × 25 cm",
+      "Thick self-inflating Comfort mattress — soft sleep and insulation from the ground. More comfortable than a thin foam pad on rocky sites, and it pairs with a sleeping bag.",
+    "shop.mat.specs": "190 × 65 × 4.5 cm · weight 1.7 kg · packed 37 × 25 × 25 cm",
     "shop.chair.name": "Folding chair",
     "shop.chair.desc":
       "Folding camping chair with armrests and a mesh cup holder. Carry strap included — handy by the tent and at a picnic.",
@@ -399,7 +399,7 @@
     "shop.form.submit": "Send via Telegram",
     "shop.form.submitWa": "Send via WhatsApp",
     "shop.form.bagShort": "Comfort sleeping bag",
-    "shop.form.matShort": "Comfort mat 8 cm",
+    "shop.form.matShort": "Comfort mattress",
     "shop.form.table": "Folding table",
     "shop.form.lantern": "Camping lantern",
     "shop.form.sitpad": "Foam sit pad",
@@ -492,7 +492,7 @@
     "Палатка 2-местная Quechua": "2-person Quechua tent",
     "Палатка 4-местная Quechua": "4-person Quechua tent",
     "Спальник Comfort": "Comfort sleeping bag",
-    "Коврик Comfort 8 см": "Comfort mat 8 cm",
+    "Матрас Comfort": "Comfort mattress",
     "Кресло складное": "Folding chair",
     "Газовая горелка": "Gas stove",
     "Стол складной": "Folding table",
